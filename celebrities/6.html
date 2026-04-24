@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dwayne Johnson - ARKPA Magazine</title>
+<link rel="icon" type="image/png" href="../bean.png">
+
+<style>
+
+/*GLOBAL STYLES*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background: #eee7e7;
+    color: #222;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+    transition: 0.3s;
+}
+
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+html { scroll-padding-top: 120px; }
+
+
+/*box*/
+header {
+    background: #000;
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 10%;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.hamburger {
+    position: absolute;
+    left: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+.hamburger span {
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    transition: 0.3s;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+.hamburger-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 200px;
+    background: #000;
+    display: none;
+    flex-direction: column;
+    padding: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+.hamburger-menu.active {
+    display: flex;
+}
+
+.hamburger-menu a, .hamburger-menu button {
+    color: #fff;
+    padding: 10px;
+    text-decoration: none;
+    border: none;
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+}
+
+.hamburger-menu a:hover, .hamburger-menu button:hover {
+    background: #333;
+}
+
+header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    color: #ff3333;
+    letter-spacing: 2px;
+    flex-shrink: 0;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-left: 38px;
+}
+
+nav a {
+    font-weight: 500;
+    color: #fff;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+nav a:hover,
+nav a.active {
+    color: #ff3333;
+    font-weight: 700;
+}
+
+/*search bar ni gelo*/
+.search-bar {
+    display: flex;
+    gap: 0;
+    position: relative;
+    z-index: 5;
+    margin: 0;
+    min-width: 280px;
+    max-width: 400px;
+}
+
+.search-bar input {
+    color: white;
+    background: #333;
+    padding: 12px 18px;
+    font-size: 14px;
+    border-radius: 25px 0 0 25px;
+    border: 1px solid #413535;
+    outline: none;
+    width: 100%;
+}
+
+.search-bar button {
+    padding: 12px 18px;
+    border: none;
+    background: #ff3333;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 0 25px 25px 0;
+    transition: 0.3s;
+    font-size: 14px;
+}
+
+.search-bar button:hover { background: #cc0000; }
+
+
+
+
+
+
+img { 
+    max-width: 100%;
+    }
+.left-profile-image {
+    float: left;
+    width: 280px;
+    max-width: 100%;
+    margin: 0 20px 20px 0;
+    border-radius: 10px;
+    
+}
+.right-profile-image{
+    float: right;
+    width: 280px;
+    max-width: 100%;
+    margin: 0 20px 20px 0;
+    border-radius: 10px;
+}
+.wew {
+    float: left;
+    width: 40%;
+    padding: 10px;
+}
+.wow {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    color: #ff3333;
+}
+.back-link { display: inline-block; margin-bottom: 20px; padding: 10px 20px; background: #ff3333; color: #fff; text-decoration: none; border-radius: 5px; }
+.back-link:hover { background: #cc0000; }
+
+.hamburger {
+    position: absolute;
+    left: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+.hamburger span {
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    transition: 0.3s;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+.hamburger-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 200px;
+    background: #000;
+    display: none;
+    flex-direction: column;
+    padding: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+.hamburger-menu.active {
+    display: flex;
+}
+
+.hamburger-menu a, .hamburger-menu button {
+    color: #fff;
+    padding: 10px;
+    text-decoration: none;
+    border: none;
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+}
+
+.hamburger-menu a:hover, .hamburger-menu button:hover {
+    background: #333;
+}
+
+.Logo img {
+    width: 150px;
+    height: auto;
+}
+
+h1 {
+    color: #ff3333;
+}
+
+
+
+
+/* DARK MODE */
+body.dark-mode {
+    background: #121212;
+    color: #f1f1f1;
+}
+
+body.dark-mode header {
+    background: #000;
+}
+
+body.dark-mode .card,
+body.dark-mode .ccard {
+    background: #1e1e1e;
+    color: #fff;
+}
+
+body.dark-mode .card-content,
+body.dark-mode .ccard-content p {
+    color: #ccc;
+}
+
+body.dark-mode .quote{
+  color: #ff3333;
+}
+
+
+body.dark-mode .author{
+  color: #ccc;
+}
+
+
+
+
+body.dark-mode .hamburger-menu {
+    background: #111;
+}
+
+body.dark-mode footer {
+    background: #000;
+}
+
+body.dark-mode pre{
+    background: #0e0d0d;
+    color: #f1f1f1;
+}
+
+pre {
+    background: #d4c8c8;
+    color: #000;
+    padding: 15px;
+    border-radius: 10px;
+    overflow: auto;
+    white-space: pre-wrap;
+    display: block;
+    clear: both;
+}
+
+
+
+
+</style>
+<header>
+<button class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+</button>
+<div class="container">
+    <div class="Logo">
+      <img src="../Image/Logo/1logo.png"  alt="ARKPA Logo">
+    </div>
+    <nav>
+      
+        <a href="../index.html#slider" >Home</a>
+        <a href="../index.html#trending" >Trending</a>
+        <a href="../index.html#celebrity" >Celebrities</a>
+        <a href="../index.html#featured-filipino">Featured</a>
+        <a href="../index.html#founders" >Founders</a>
+        
+    </nav>
+    
+</div>
+<div class="hamburger-menu" id="hamburger-menu">
+    <a href="ARKPA_FILE/AboutUs.html">About Us</a>
+    <a href="#">Settings</a>
+    
+    <button id="dark-mode-toggle">Dark Mode</button>
+</div>
+</header>
+
+
+<div style="margin-left: 2.5%;" class="container">
+
+<script>
+// Hamburger menu toggle
+document.querySelector('.hamburger').addEventListener('click', () => {
+    document.querySelector('.hamburger').classList.toggle('active');
+    document.getElementById('hamburger-menu').classList.toggle('active');
+});
+
+// Dark mode toggle
+document.getElementById('dark-mode-toggle').addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+});
+</script>
+
+<h1>Dwayne Johnson</h1>
+<h2>The Rock — Power, Discipline, Legacy</h2>
+
+<img class="left-profile-image" src="../Image/Rock/Dwayne-Johnson.png" alt="Dwayne Johnson">
+
+Dwayne Johnson is more than a global superstar—he is a symbol of strength, resilience, and relentless ambition, known for transforming himself from a struggling athlete into one of the most powerful figures in entertainment.
+
+Born into a wrestling family, he carried the legacy of his father and grandfather, but his path to success was far from guaranteed.
+
+Before fame, he faced rejection, financial struggles, and uncertainty, experiences that would later define his mindset and drive.
+
+Today, he stands as an actor, producer, entrepreneur, and former wrestling icon, proving that success is built not just on talent, but on discipline and consistency.
+
+---
+
+<h3>From Struggle to Strength</h3>
+
+Dwayne Johnson’s early life was shaped by instability, moving frequently and experiencing financial hardship, at times having very little to rely on.
+
+He pursued football with hopes of building a career, but injuries and setbacks ended that dream, leaving him at a low point in his life.
+
+With only a few dollars to his name, he returned to wrestling, stepping into the world that once defined his family.
+
+At first, he was rejected by audiences, but through persistence and personality, he transformed into “The Rock,” one of the most electrifying performers in wrestling history.
+
+---
+
+<h3>The Rise of The Rock</h3>
+
+<img class="right-profile-image" src="../Image/Rock/Rock1.png" alt="The Rock WWE">
+
+Dwayne Johnson became known for his charisma, confidence, and unmatched presence, dominating the wrestling world with energy and connection to the audience.
+
+His ability to entertain extended beyond the ring, opening the doors to Hollywood and a new chapter in his career.
+
+Unlike many athletes, he successfully transitioned into acting, bringing his personality and work ethic into every role.
+
+His rise was not instant, but built through years of consistency, proving that reinvention is possible with dedication.
+
+---
+
+<h3>Beyond Strength — The Mindset</h3>
+
+
+Behind the muscles and fame lies a mindset built on discipline, routine, and mental strength.
+
+Dwayne Johnson is known for his intense work ethic, often waking up early to train, emphasizing that success comes from daily effort.
+
+He openly shares his struggles, including moments of failure and doubt, reminding others that strength is not just physical, but mental and emotional.
+
+His journey represents the idea that setbacks are not endings, but opportunities to rebuild stronger.
+
+---
+
+<div class="wew">
+<h3>Iconic Projects</h3>
+<pre>
+<b>WWE Era (The Rock)</b> — A legendary wrestling career that 
+defined entertainment and charisma in sports.
+
+<b>The Scorpion King</b> — His breakout film that introduced 
+him as a leading action star.
+
+<b>Fast & Furious Franchise</b> — A major role that expanded 
+his global popularity in action cinema.
+
+<b>Jumanji</b> — A modern blockbuster success showing his 
+versatility in comedy and adventure.
+
+<b>Black Adam</b> — A powerful superhero role that reflects 
+his larger-than-life presence.
+
+<b>Entrepreneurship</b> — Building businesses and brands 
+that extend his influence beyond entertainment.
+</pre>
+</div>
+
+<h3>The Legacy</h3>
+
+Dwayne Johnson’s legacy is defined not just by fame, but by transformation, proving that identity is not fixed, but built over time through effort and belief.
+
+He represents the modern idea of success—where strength, discipline, and authenticity come together to create lasting impact.
+
+From struggle to global icon, his journey continues to inspire millions to push beyond limits and redefine what is possible.
+
+<br>
+
+<i style="color: #ff3333;">
+“Success isn’t always about greatness. It’s about consistency.”</i>
+
+<br><br>
+
+<a href="../index.html#celebrity" class="back-link">← Back to Celebrities</a>
+
+</div>
+</body>
+</html>

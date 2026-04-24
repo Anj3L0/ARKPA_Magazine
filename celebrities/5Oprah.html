@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Oprah Winfrey - ARKPA Magazine</title>
+<link rel="icon" type="image/png" href="../bean.png">
+<style>
+
+/*GLOBAL STYLES*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background: #eee7e7;
+    color: #222;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+    transition: 0.3s;
+}
+
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+html { scroll-padding-top: 120px; }
+
+
+/*box*/
+header {
+    background: #000;
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 10%;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.hamburger {
+    position: absolute;
+    left: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+.hamburger span {
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    transition: 0.3s;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+.hamburger-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 200px;
+    background: #000;
+    display: none;
+    flex-direction: column;
+    padding: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+.hamburger-menu.active {
+    display: flex;
+}
+
+.hamburger-menu a, .hamburger-menu button {
+    color: #fff;
+    padding: 10px;
+    text-decoration: none;
+    border: none;
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+}
+
+.hamburger-menu a:hover, .hamburger-menu button:hover {
+    background: #333;
+}
+
+header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    color: #ff3333;
+    letter-spacing: 2px;
+    flex-shrink: 0;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-left: 38px;
+}
+
+nav a {
+    font-weight: 500;
+    color: #fff;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+nav a:hover,
+nav a.active {
+    color: #ff3333;
+    font-weight: 700;
+}
+
+/*search bar ni gelo*/
+.search-bar {
+    display: flex;
+    gap: 0;
+    position: relative;
+    z-index: 5;
+    margin: 0;
+    min-width: 280px;
+    max-width: 400px;
+}
+
+.search-bar input {
+    color: white;
+    background: #333;
+    padding: 12px 18px;
+    font-size: 14px;
+    border-radius: 25px 0 0 25px;
+    border: 1px solid #413535;
+    outline: none;
+    width: 100%;
+}
+
+.search-bar button {
+    padding: 12px 18px;
+    border: none;
+    background: #ff3333;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 0 25px 25px 0;
+    transition: 0.3s;
+    font-size: 14px;
+}
+
+.search-bar button:hover { background: #cc0000; }
+
+
+
+
+
+
+img { 
+    max-width: 100%;
+    }
+.left-profile-image {
+    float: left;
+    width: 280px;
+    max-width: 100%;
+    margin: 0 20px 20px 0;
+    border-radius: 10px;
+    
+}
+.right-profile-image{
+    float: right;
+    width: 280px;
+    max-width: 100%;
+    margin: 0 20px 20px 0;
+    border-radius: 10px;
+}
+.wew {
+    float: left;
+    width: 40%;
+    padding: 10px;
+}
+.wow {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    color: #ff3333;
+}
+.back-link { display: inline-block; margin-bottom: 20px; padding: 10px 20px; background: #ff3333; color: #fff; text-decoration: none; border-radius: 5px; }
+.back-link:hover { background: #cc0000; }
+
+.hamburger {
+    position: absolute;
+    left: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+.hamburger span {
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    transition: 0.3s;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+.hamburger-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 200px;
+    background: #000;
+    display: none;
+    flex-direction: column;
+    padding: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+.hamburger-menu.active {
+    display: flex;
+}
+
+.hamburger-menu a, .hamburger-menu button {
+    color: #fff;
+    padding: 10px;
+    text-decoration: none;
+    border: none;
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+}
+
+.hamburger-menu a:hover, .hamburger-menu button:hover {
+    background: #333;
+}
+
+.Logo img {
+    width: 150px;
+    height: auto;
+}
+
+h1 {
+    color: #ff3333;
+}
+
+
+
+
+/* DARK MODE */
+body.dark-mode {
+    background: #121212;
+    color: #f1f1f1;
+}
+
+body.dark-mode header {
+    background: #000;
+}
+
+body.dark-mode .card,
+body.dark-mode .ccard {
+    background: #1e1e1e;
+    color: #fff;
+}
+
+body.dark-mode .card-content,
+body.dark-mode .ccard-content p {
+    color: #ccc;
+}
+
+body.dark-mode .quote{
+  color: #ff3333;
+}
+
+
+body.dark-mode .author{
+  color: #ccc;
+}
+
+
+
+
+body.dark-mode .hamburger-menu {
+    background: #111;
+}
+
+body.dark-mode footer {
+    background: #000;
+}
+
+body.dark-mode pre{
+    background: #0e0d0d;
+    color: #f1f1f1;
+}
+
+pre {
+    background: #d4c8c8;
+    color: #000;
+    padding: 15px;
+    border-radius: 10px;
+    overflow: auto;
+    white-space: pre-wrap;
+    display: block;
+    clear: both;
+}
+
+
+
+
+</style>
+<header>
+<button class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+</button>
+<div class="container">
+    <div class="Logo">
+      <img src="../Image/Logo/1logo.png"  alt="ARKPA Logo">
+    </div>
+    <nav>
+      
+        <a href="../index.html#slider" >Home</a>
+        <a href="../index.html#trending" >Trending</a>
+        <a href="../index.html#celebrity" >Celebrities</a>
+        <a href="../index.html#featured-filipino">Featured</a>
+        <a href="../index.html#founders" >Founders</a>
+        
+    </nav>
+    
+</div>
+<div class="hamburger-menu" id="hamburger-menu">
+    <a href="ARKPA_FILE/AboutUs.html">About Us</a>
+    <a href="#">Settings</a>
+    
+    <button id="dark-mode-toggle">Dark Mode</button>
+</div>
+</header>
+
+
+<div style="margin-left: 2.5%;" class="container">
+
+<script>
+// Hamburger menu toggle
+document.querySelector('.hamburger').addEventListener('click', () => {
+    document.querySelector('.hamburger').classList.toggle('active');
+    document.getElementById('hamburger-menu').classList.toggle('active');
+});
+
+// Dark mode toggle
+document.getElementById('dark-mode-toggle').addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+});
+</script>
+
+<h1>Oprah Winfrey</h1>
+<h2>The Queen of Media</h2>
+
+<img class="left-profile-image" src="../Image/Oprah/1OPRAH.png" alt="Oprah Winfrey">
+
+Oprah Winfrey is not just a television host—she is one of the most powerful and influential women in the world, known for transforming media into a platform for truth, healing, and inspiration.
+
+Born into poverty in Mississippi, Oprah rose from a life filled with hardship and struggle to become a global icon, using her voice to uplift millions and redefine what success truly means.
+
+She is a talk show host, producer, actress, entrepreneur, and philanthropist—but beyond titles, she is a storyteller who connects deeply with people, turning personal pain into collective understanding.
+
+Unlike traditional celebrities, Oprah built her legacy not on performance alone, but on authenticity, empathy, and the courage to speak about real-life struggles.
+
+<h3>From Struggle to Strength</h3>
+
+Oprah Winfrey’s journey begins in poverty, where she was raised by a single mother and experienced a difficult childhood marked by instability and hardship.
+
+Despite these challenges, she discovered her voice at an early age, excelling in school and public speaking, showing signs of the powerful communicator she would become.
+
+Her early life was not easy, as she faced trauma and obstacles that could have defined her negatively, but instead became the foundation of her strength and resilience.
+
+She entered media as a news anchor, but her emotional and human-centered approach was initially seen as too different, leading to setbacks in her early career.
+
+Instead of conforming, Oprah embraced her uniqueness, transforming vulnerability into strength and creating a new kind of connection with audiences.
+
+<h3>The Rise</h3>
+
+<div class="right-profile-image">
+    <img src="../Image/Oprah/Oprah2.png" alt="Oprah Winfrey">
+</div>
+
+Oprah Winfrey became known not just for her talent, but for her ability to connect deeply with people, turning interviews into meaningful conversations that resonated worldwide.
+
+Her breakthrough came with *The Oprah Winfrey Show*, where she redefined daytime television by focusing on real stories, emotions, and personal growth.
+
+Her authenticity and empathy made viewers feel seen and understood, setting her apart from traditional media personalities.
+
+She built a media empire through determination and vision, launching her own production company and later her own television network.
+
+Over time, she became not only a media figure but a cultural force, influencing conversations about self-improvement, mental health, and social issues.
+
+<h3>The Personal Side</h3>
+
+Behind her success, Oprah Winfrey’s personal story remains deeply human, shaped by pain, growth, and self-discovery.
+
+She has openly spoken about her past struggles, using her experiences to inspire others and break the silence around difficult topics.
+
+Despite her fame, she continues to value self-reflection and emotional growth, emphasizing the importance of understanding oneself.
+
+Her life reflects a balance between ambition and compassion, showing that success is not just about achievement, but also about purpose.
+
+She has dedicated much of her life to helping others, especially through education and empowerment initiatives.
+
+<br>
+
+<div class="wew">
+<h3>A Legacy of Influence</h3>
+<pre>
+<b>The Oprah Winfrey Show</b> — A groundbreaking talk show that transformed 
+television into a space for real conversations and emotional connection.
+
+<b>OWN Network</b> — A bold step into media ownership, creating content that 
+inspires and empowers audiences worldwide.
+
+<b>The Color Purple</b> — A powerful acting role that showcased her depth 
+and emotional strength as a performer.
+
+<b>Oprah's Book Club</b> — A cultural phenomenon that influenced reading 
+habits and brought literature to the mainstream.
+
+<b>Super Soul Sunday</b> — A program focused on spirituality, growth, and 
+deep conversations about life and purpose.
+
+<b>Philanthropy Work</b> — A lifelong commitment to education and helping 
+communities, especially through scholarships and schools.
+</pre>
+</div>
+
+<h3>The Legacy</h3>
+
+Oprah Winfrey’s legacy is not just built on success, but on impact, proving that influence is most powerful when it is used to uplift others.
+
+She transformed media into a tool for connection and growth, turning stories into lessons and conversations into change.
+
+Her journey shows that no matter where you begin, your voice has the power to shape your future and inspire the world.
+
+<br>
+
+<i style="color: #ff3333;">
+    “Turn your wounds into wisdom.”</i><br>
+
+She remains one of the most influential figures in modern history, reminding us that true success is not measured by fame, but by the lives we touch and the change we create.
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+<a href="../index.html#celebrity" class="back-link">← Back to Celebrities</a>
+
+</div>
+</body>
+</html>

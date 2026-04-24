@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Rowan Atkinson - ARKPA Magazine</title>
+<link rel="icon" type="image/png" href="../bean.png">
+<style>
+
+/*GLOBAL STYLES*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background: #eee7e7;
+    color: #222;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+    transition: 0.3s;
+}
+
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+html { scroll-padding-top: 120px; }
+
+
+/*box*/
+header {
+    background: #000;
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 10%;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.hamburger {
+    position: absolute;
+    left: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+.hamburger span {
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    transition: 0.3s;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+.hamburger-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 200px;
+    background: #000;
+    display: none;
+    flex-direction: column;
+    padding: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+.hamburger-menu.active {
+    display: flex;
+}
+
+.hamburger-menu a, .hamburger-menu button {
+    color: #fff;
+    padding: 10px;
+    text-decoration: none;
+    border: none;
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+}
+
+.hamburger-menu a:hover, .hamburger-menu button:hover {
+    background: #333;
+}
+
+header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    color: #ff3333;
+    letter-spacing: 2px;
+    flex-shrink: 0;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-left: 38px;
+}
+
+nav a {
+    font-weight: 500;
+    color: #fff;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+nav a:hover,
+nav a.active {
+    color: #ff3333;
+    font-weight: 700;
+}
+
+/*search bar ni gelo*/
+.search-bar {
+    display: flex;
+    gap: 0;
+    position: relative;
+    z-index: 5;
+    margin: 0;
+    min-width: 280px;
+    max-width: 400px;
+}
+
+.search-bar input {
+    color: white;
+    background: #333;
+    padding: 12px 18px;
+    font-size: 14px;
+    border-radius: 25px 0 0 25px;
+    border: 1px solid #413535;
+    outline: none;
+    width: 100%;
+}
+
+.search-bar button {
+    padding: 12px 18px;
+    border: none;
+    background: #ff3333;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 0 25px 25px 0;
+    transition: 0.3s;
+    font-size: 14px;
+}
+
+.search-bar button:hover { background: #cc0000; }
+
+
+
+
+
+
+img { 
+    max-width: 100%;
+    }
+.left-profile-image {
+    float: left;
+    width: 280px;
+    max-width: 100%;
+    margin: 0 20px 20px 0;
+    border-radius: 10px;
+    
+}
+.right-profile-image{
+    float: right;
+    width: 280px;
+    max-width: 100%;
+    margin: 0 20px 20px 0;
+    border-radius: 10px;
+}
+.wew {
+    float: left;
+    width: 40%;
+    padding: 10px;
+}
+.wow {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    color: #ff3333;
+}
+.back-link { display: inline-block; margin-bottom: 20px; padding: 10px 20px; background: #ff3333; color: #fff; text-decoration: none; border-radius: 5px; }
+.back-link:hover { background: #cc0000; }
+
+.hamburger {
+    position: absolute;
+    left: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+.hamburger span {
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    transition: 0.3s;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+.hamburger-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 200px;
+    background: #000;
+    display: none;
+    flex-direction: column;
+    padding: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+.hamburger-menu.active {
+    display: flex;
+}
+
+.hamburger-menu a, .hamburger-menu button {
+    color: #fff;
+    padding: 10px;
+    text-decoration: none;
+    border: none;
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+}
+
+.hamburger-menu a:hover, .hamburger-menu button:hover {
+    background: #333;
+}
+
+.Logo img {
+    width: 150px;
+    height: auto;
+}
+
+h1 {
+    color: #ff3333;
+}
+
+</style>
+<header>
+<button class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+</button>
+<div class="container">
+    <div class="Logo">
+      <img src="../Image/Logo/1logo.png"  alt="ARKPA Logo">
+    </div>
+    <nav>
+      
+        <a href="../index.html#slider" >Home</a>
+        <a href="../index.html#trending" >Trending</a>
+        <a href="../index.html#celebrity" >Celebrities</a>
+        <a href="../index.html#featured-filipino">Featured</a>
+        <a href="../index.html#founders" >Founders</a>
+        
+    </nav>
+    
+</div>
+<div class="hamburger-menu" id="hamburger-menu">
+    <a href="ARKPA_FILE/AboutUs.html">About Us</a>
+    <a href="#">Settings</a>
+    <button id="dark-mode-toggle">Dark Mode</button>
+</div>
+</header>
+
+
+<div class="container">
+
+<h1>Jackie Chan</h1>
+<h2>The Master of Action</h2>
+<img class="left-profile-image" src="../Image/JackieChan/jackie.png" alt="Jackie Chan">
+Jackie Chan is not just a movie star—he is a global symbol of action, resilience, and creativity, known for transforming martial arts cinema into something human, humorous, and breathtakingly real.
+
+Born Chan Kong-sang in Hong Kong, he rose from a strict and painful childhood into one of the most recognized faces in the world, blending danger and comedy in a way no one had ever done before.
+
+He is an actor, stuntman, director, producer, and performer—but more importantly, he is a storyteller who uses his own body as his language, turning pain into performance and failure into legacy.
+
+Unlike traditional action heroes, Jackie Chan does not play the invincible warrior—he plays the man who struggles, gets hurt, and still finds a way to stand up again, making him not just entertaining, but deeply relatable.
+<h3>From Discipline to Destiny</h3>
+
+Jackie Chan’s journey begins not with fame, but with sacrifice, when he was sent at a young age to the China Drama Academy, a place where children were trained with extreme discipline in martial arts, acrobatics, and performance.
+
+His childhood was shaped by pain, repetition, and strict control, where mistakes were punished and endurance was expected, quietly building the foundation of the fearless performer the world would later admire.
+
+After years of training, he entered the film industry as a stuntman, working in the shadows of legends like Bruce Lee, appearing in films such as Fist of Fury and Enter the Dragon, where he was just another face in the background.
+
+When Bruce Lee passed away, Jackie was pushed into roles meant to replace him, but the attempt failed, as audiences could sense he was trying to become someone he was not, leading to a period of rejection and uncertainty.
+
+Instead of giving up, Jackie Chan made a defining decision—to stop imitating and start creating—blending martial arts with comedy and realism, shaping a new identity that would eventually redefine the genre.
+
+<h3>The Rise</h3>
+<div class="right-profile-image">
+    <img src="../Image/JackieChan/Chan1.png" alt="Jackie Chan">
+</div>
+Jackie Chan became known not simply because of talent, but because he changed the rules of action cinema, choosing to perform his own stunts, embrace imperfection, and show vulnerability on screen.
+
+His willingness to risk his life for authenticity, combined with his unique comedic timing, made his performances feel real, raw, and unforgettable, setting him apart from every action star before him.
+
+Audiences connected with him because he did not appear untouchable—instead, he stumbled, struggled, and endured, reflecting the real human experience rather than an unrealistic fantasy.
+
+His breakthrough came when he fully embraced his identity in films like Drunken Master, where his playful yet skillful fighting style captured attention and admiration.
+
+As his career grew, his reputation for dangerous stunts became legendary, with near-fatal accidents and countless injuries proving his dedication, turning his pain into part of his story and his story into global recognition.
+
+Eventually, Hollywood recognized his brilliance, and with Rush Hour, he reached international superstardom, becoming a bridge between Eastern and Western cinema.
+
+<h3>The Personal Side</h3>
+
+Behind the action and laughter, Jackie Chan’s personal life tells a more complicated and human story, shaped by distance, regret, and responsibility.
+
+Despite his global success, his early life left emotional gaps, as years of separation from his parents and strict training affected how he understood family and relationships.
+
+He has openly admitted that he was not always present as a father, acknowledging mistakes and expressing regret over how fame and work sometimes took priority over personal connections.
+
+At the same time, Jackie has used his success to give back, becoming deeply involved in charity work, supporting education, disaster relief, and humanitarian efforts across different countries.
+
+This side of him reveals a man who is not perfect, but aware—someone who continues to grow, reflect, and try to do better beyond the spotlight
+
+<br>
+
+
+
+
+
+
+
+
+
+
+<div class="wew">
+<h3>A Legacy Written in Motion</h3>
+<pre>
+</b>Drunken Master</b> — A revolutionary film that introduced Jackie Chan’s 
+signature blend of humor and martial arts, redefining what a 
+kung fu hero could be.
+<b>Snake in the Eagle's Shadow</b> — A turning point where his unique style 
+began to take shape, combining underdog storytelling with inventive 
+fight choreography.
+<b>Project A</b> — A bold and physically demanding production that showcased 
+his commitment to real stunts, highlighted by the unforgettable clock 
+tower fall.
+<b>Police Story</b> — A defining action masterpiece that pushed the limits 
+of stunt work, featuring intense sequences performed entirely by 
+Jackie himself.
+<b>Armour of God</b> — A film remembered not only for its adventure but for 
+the life-threatening accident that nearly ended his career.
+<b>Rush Hour</b> — The film that introduced Jackie Chan to a global audience, 
+blending action and humor in a way that resonated worldwide.
+<b>Shanghai Noon</b> — A creative fusion of Eastern martial arts and Western 
+storytelling, expanding his influence across genres.
+</pre>
+</div>
+
+<h3>The Legacy</h3>
+
+Jackie Chan’s legacy is not just built on films, but on the risks he took, the identity he embraced, and the barriers he broke, proving that greatness is not about perfection, but persistence.
+
+He transformed action cinema into something personal and expressive, turning every fall into a story and every scar into proof of dedication, inspiring generations to pursue their own path without fear of failure.
+
+
+<br>
+
+<i style="color: #ff3333;">
+    “I never give up. I try again and again.”</i><br>
+    He remains one of the few global icons who did not follow a formula, but instead created one—reminding the world that true success comes not from imitation, but from courage, authenticity, and the willingness to rise after every fall.</i>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<a href="../index.html#celebrity" class="back-link">← Back to Celebrities</a>
+</div>
+</body>
+
+
+</html>

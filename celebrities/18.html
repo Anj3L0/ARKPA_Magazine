@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>IU - ARKPA Magazine</title>
+<link rel="icon" type="image/png" href="../bean.png">
+
+<style>
+
+/*GLOBAL STYLES*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background: #eee7e7;
+    color: #222;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+    transition: 0.3s;
+}
+
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+html { scroll-padding-top: 120px; }
+
+
+/*box*/
+header {
+    background: #000;
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 10%;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.hamburger {
+    position: absolute;
+    left: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+.hamburger span {
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    transition: 0.3s;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+.hamburger-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 200px;
+    background: #000;
+    display: none;
+    flex-direction: column;
+    padding: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+.hamburger-menu.active {
+    display: flex;
+}
+
+.hamburger-menu a, .hamburger-menu button {
+    color: #fff;
+    padding: 10px;
+    text-decoration: none;
+    border: none;
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+}
+
+.hamburger-menu a:hover, .hamburger-menu button:hover {
+    background: #333;
+}
+
+header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    color: #ff3333;
+    letter-spacing: 2px;
+    flex-shrink: 0;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-left: 38px;
+}
+
+nav a {
+    font-weight: 500;
+    color: #fff;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+nav a:hover,
+nav a.active {
+    color: #ff3333;
+    font-weight: 700;
+}
+
+/*search bar ni gelo*/
+.search-bar {
+    display: flex;
+    gap: 0;
+    position: relative;
+    z-index: 5;
+    margin: 0;
+    min-width: 280px;
+    max-width: 400px;
+}
+
+.search-bar input {
+    color: white;
+    background: #333;
+    padding: 12px 18px;
+    font-size: 14px;
+    border-radius: 25px 0 0 25px;
+    border: 1px solid #413535;
+    outline: none;
+    width: 100%;
+}
+
+.search-bar button {
+    padding: 12px 18px;
+    border: none;
+    background: #ff3333;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 0 25px 25px 0;
+    transition: 0.3s;
+    font-size: 14px;
+}
+
+.search-bar button:hover { background: #cc0000; }
+
+
+
+
+
+
+img { 
+    max-width: 100%;
+    }
+.left-profile-image {
+    float: left;
+    width: 280px;
+    max-width: 100%;
+    margin: 0 20px 20px 0;
+    border-radius: 10px;
+    
+}
+.right-profile-image{
+    float: right;
+    width: 280px;
+    max-width: 100%;
+    margin: 0 20px 20px 0;
+    border-radius: 10px;
+}
+.wew {
+    float: left;
+    width: 40%;
+    padding: 10px;
+}
+.wow {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    color: #ff3333;
+}
+.back-link { display: inline-block; margin-bottom: 20px; padding: 10px 20px; background: #ff3333; color: #fff; text-decoration: none; border-radius: 5px; }
+.back-link:hover { background: #cc0000; }
+
+.hamburger {
+    position: absolute;
+    left: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+.hamburger span {
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    transition: 0.3s;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+.hamburger-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 200px;
+    background: #000;
+    display: none;
+    flex-direction: column;
+    padding: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+.hamburger-menu.active {
+    display: flex;
+}
+
+.hamburger-menu a, .hamburger-menu button {
+    color: #fff;
+    padding: 10px;
+    text-decoration: none;
+    border: none;
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+}
+
+.hamburger-menu a:hover, .hamburger-menu button:hover {
+    background: #333;
+}
+
+.Logo img {
+    width: 150px;
+    height: auto;
+}
+
+h1 {
+    color: #ff3333;
+}
+
+
+
+
+/* DARK MODE */
+body.dark-mode {
+    background: #121212;
+    color: #f1f1f1;
+}
+
+body.dark-mode header {
+    background: #000;
+}
+
+body.dark-mode .card,
+body.dark-mode .ccard {
+    background: #1e1e1e;
+    color: #fff;
+}
+
+body.dark-mode .card-content,
+body.dark-mode .ccard-content p {
+    color: #ccc;
+}
+
+body.dark-mode .quote{
+  color: #ff3333;
+}
+
+
+body.dark-mode .author{
+  color: #ccc;
+}
+
+
+
+
+body.dark-mode .hamburger-menu {
+    background: #111;
+}
+
+body.dark-mode footer {
+    background: #000;
+}
+
+body.dark-mode pre{
+    background: #0e0d0d;
+    color: #f1f1f1;
+}
+
+pre {
+    background: #d4c8c8;
+    color: #000;
+    padding: 15px;
+    border-radius: 10px;
+    overflow: auto;
+    white-space: pre-wrap;
+    display: block;
+    clear: both;
+}
+
+
+
+
+</style>
+<header>
+<button class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+</button>
+<div class="container">
+    <div class="Logo">
+      <img src="../Image/Logo/1logo.png"  alt="ARKPA Logo">
+    </div>
+    <nav>
+      
+        <a href="../index.html#slider" >Home</a>
+        <a href="../index.html#trending" >Trending</a>
+        <a href="../index.html#celebrity" >Celebrities</a>
+        <a href="../index.html#featured-filipino">Featured</a>
+        <a href="../index.html#founders" >Founders</a>
+        
+    </nav>
+    
+</div>
+<div class="hamburger-menu" id="hamburger-menu">
+    <a href="ARKPA_FILE/AboutUs.html">About Us</a>
+    <a href="#">Settings</a>
+    
+    <button id="dark-mode-toggle">Dark Mode</button>
+</div>
+</header>
+
+
+<div style="margin-left: 2.5%;" class="container">
+
+<script>
+// Hamburger menu toggle
+document.querySelector('.hamburger').addEventListener('click', () => {
+    document.querySelector('.hamburger').classList.toggle('active');
+    document.getElementById('hamburger-menu').classList.toggle('active');
+});
+
+// Dark mode toggle
+document.getElementById('dark-mode-toggle').addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+});
+</script>
+
+<h1>IU</h1>
+<h2>The Voice of Emotion and South Korea’s Musical Treasure</h2>
+
+<img class="left-profile-image" src="../Image/UI/IU.png" alt="IU portrait">
+
+:contentReference[oaicite:0]{index=0} is one of South Korea’s most beloved singers, songwriters, and actresses, known for her emotional voice, heartfelt lyrics, and timeless music.
+
+Born in Seoul, South Korea, she grew up in a modest environment and faced financial struggles during her childhood.
+
+Despite hardships, she discovered her passion for music early and worked tirelessly to pursue a career in the entertainment industry.
+
+Her determination led her from a trainee with no guarantees to one of the most respected artists in Asia.
+
+---
+
+<h3>Rise to Stardom</h3>
+
+IU debuted at a young age with the goal of becoming a singer in the competitive Korean music industry.
+
+Her early career was not easy, facing rejection and limited recognition before her breakthrough.
+
+She gained attention with her song *“Good Day”*, which showcased her incredible vocal range and emotional delivery.
+
+The song became a massive hit and established her as a rising star in K-pop.
+
+---
+
+<h3>Music Career and Style</h3>
+
+<img class="right-profile-image" src="../Image/UI/IUU.png" alt="IU performance">
+
+IU is known for her unique ability to blend pop, ballad, and acoustic styles into emotionally rich music.
+
+She writes many of her own songs, often exploring themes like love, loneliness, youth, and self-reflection.
+
+Her voice is often described as soft yet powerful, capable of expressing deep emotional meaning.
+
+She is also respected for her artistic growth and consistency over the years.
+
+---
+
+<h3>Acting and Influence</h3>
+
+
+Beyond music, IU has built a successful acting career in dramas and films.
+
+She is praised for her natural acting ability and emotional depth in roles that often explore human relationships and personal struggles.
+
+Her performances have earned her critical acclaim and expanded her influence beyond music.
+
+She has become a symbol of talent, humility, and artistic versatility.
+
+---
+
+<div class="wew">
+
+<h3>Major Achievements</h3>
+
+<pre>
+<b>Hit Songs</b> — Including Good Day, Palette, and Love Poem.
+
+<b>Acting Success</b> — Critically acclaimed roles in Korean dramas.
+
+<b>Songwriting Talent</b> — Known for writing meaningful lyrics.
+
+<b>Nationwide Popularity</b> — One of Korea’s top solo artists.
+
+<b>Global Influence</b> — Loved by fans worldwide.
+</pre>
+
+</div>
+
+<h3>The Legacy</h3>
+
+IU’s legacy is defined by emotional honesty, artistic growth, and deep connection with her audience.
+
+She represents the idea that success comes from perseverance, humility, and staying true to oneself.
+
+Her music continues to inspire millions across generations.
+
+<br><br>
+
+<i style="color:#ff3333;">
+“Be yourself, even if it feels lonely.”
+</i>
+
+<br><br>
+
+<a href="../index.html#celebrity" class="back-link">← Back to Celebrities</a>
+
+</div>
+
+</body>
+</html>

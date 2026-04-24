@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Taylor Swift - ARKPA Magazine</title>
+<link rel="icon" type="image/png" href="../bean.png">
+
+<style>
+
+/*GLOBAL STYLES*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background: #eee7e7;
+    color: #222;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+    transition: 0.3s;
+}
+
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+html { scroll-padding-top: 120px; }
+
+
+/*box*/
+header {
+    background: #000;
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 10%;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.hamburger {
+    position: absolute;
+    left: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+.hamburger span {
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    transition: 0.3s;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+.hamburger-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 200px;
+    background: #000;
+    display: none;
+    flex-direction: column;
+    padding: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+.hamburger-menu.active {
+    display: flex;
+}
+
+.hamburger-menu a, .hamburger-menu button {
+    color: #fff;
+    padding: 10px;
+    text-decoration: none;
+    border: none;
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+}
+
+.hamburger-menu a:hover, .hamburger-menu button:hover {
+    background: #333;
+}
+
+header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    color: #ff3333;
+    letter-spacing: 2px;
+    flex-shrink: 0;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-left: 38px;
+}
+
+nav a {
+    font-weight: 500;
+    color: #fff;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+nav a:hover,
+nav a.active {
+    color: #ff3333;
+    font-weight: 700;
+}
+
+/*search bar ni gelo*/
+.search-bar {
+    display: flex;
+    gap: 0;
+    position: relative;
+    z-index: 5;
+    margin: 0;
+    min-width: 280px;
+    max-width: 400px;
+}
+
+.search-bar input {
+    color: white;
+    background: #333;
+    padding: 12px 18px;
+    font-size: 14px;
+    border-radius: 25px 0 0 25px;
+    border: 1px solid #413535;
+    outline: none;
+    width: 100%;
+}
+
+.search-bar button {
+    padding: 12px 18px;
+    border: none;
+    background: #ff3333;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 0 25px 25px 0;
+    transition: 0.3s;
+    font-size: 14px;
+}
+
+.search-bar button:hover { background: #cc0000; }
+
+
+
+
+
+
+img { 
+    max-width: 100%;
+    }
+.left-profile-image {
+    float: left;
+    width: 280px;
+    max-width: 100%;
+    margin: 0 20px 20px 0;
+    border-radius: 10px;
+    
+}
+.right-profile-image{
+    float: right;
+    width: 280px;
+    max-width: 100%;
+    margin: 0 20px 20px 0;
+    border-radius: 10px;
+}
+.wew {
+    float: left;
+    width: 40%;
+    padding: 10px;
+}
+.wow {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    color: #ff3333;
+}
+.back-link { display: inline-block; margin-bottom: 20px; padding: 10px 20px; background: #ff3333; color: #fff; text-decoration: none; border-radius: 5px; }
+.back-link:hover { background: #cc0000; }
+
+.hamburger {
+    position: absolute;
+    left: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+.hamburger span {
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    transition: 0.3s;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+.hamburger-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 200px;
+    background: #000;
+    display: none;
+    flex-direction: column;
+    padding: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+.hamburger-menu.active {
+    display: flex;
+}
+
+.hamburger-menu a, .hamburger-menu button {
+    color: #fff;
+    padding: 10px;
+    text-decoration: none;
+    border: none;
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+}
+
+.hamburger-menu a:hover, .hamburger-menu button:hover {
+    background: #333;
+}
+
+.Logo img {
+    width: 150px;
+    height: auto;
+}
+
+h1 {
+    color: #ff3333;
+}
+
+
+
+
+/* DARK MODE */
+body.dark-mode {
+    background: #121212;
+    color: #f1f1f1;
+}
+
+body.dark-mode header {
+    background: #000;
+}
+
+body.dark-mode .card,
+body.dark-mode .ccard {
+    background: #1e1e1e;
+    color: #fff;
+}
+
+body.dark-mode .card-content,
+body.dark-mode .ccard-content p {
+    color: #ccc;
+}
+
+body.dark-mode .quote{
+  color: #ff3333;
+}
+
+
+body.dark-mode .author{
+  color: #ccc;
+}
+
+
+
+
+body.dark-mode .hamburger-menu {
+    background: #111;
+}
+
+body.dark-mode footer {
+    background: #000;
+}
+
+body.dark-mode pre{
+    background: #0e0d0d;
+    color: #f1f1f1;
+}
+
+pre {
+    background: #d4c8c8;
+    color: #000;
+    padding: 15px;
+    border-radius: 10px;
+    overflow: auto;
+    white-space: pre-wrap;
+    display: block;
+    clear: both;
+}
+
+
+
+
+</style>
+<header>
+<button class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+</button>
+<div class="container">
+    <div class="Logo">
+      <img src="../Image/Logo/1logo.png"  alt="ARKPA Logo">
+    </div>
+    <nav>
+      
+        <a href="../index.html#slider" >Home</a>
+        <a href="../index.html#trending" >Trending</a>
+        <a href="../index.html#celebrity" >Celebrities</a>
+        <a href="../index.html#featured-filipino">Featured</a>
+        <a href="../index.html#founders" >Founders</a>
+        
+    </nav>
+    
+</div>
+<div class="hamburger-menu" id="hamburger-menu">
+    <a href="ARKPA_FILE/AboutUs.html">About Us</a>
+    <a href="#">Settings</a>
+    
+    <button id="dark-mode-toggle">Dark Mode</button>
+</div>
+</header>
+
+
+<div style="margin-left: 2.5%;" class="container">
+
+<script>
+// Hamburger menu toggle
+document.querySelector('.hamburger').addEventListener('click', () => {
+    document.querySelector('.hamburger').classList.toggle('active');
+    document.getElementById('hamburger-menu').classList.toggle('active');
+});
+
+// Dark mode toggle
+document.getElementById('dark-mode-toggle').addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+});
+</script>
+
+<h1>Taylor Swift</h1>
+<h2>The Voice of a Generation</h2>
+
+<img class="left-profile-image" src="../Image/Taylor/Swift.png" alt="Taylor Swift">
+
+Taylor Swift is more than a global pop star—she is a storyteller, a songwriter, and a cultural force whose music has captured emotions, relationships, and personal growth across generations.
+
+From writing songs in her teenage years to becoming one of the most influential artists in the world, her journey is built on honesty, creativity, and constant reinvention.
+
+She is not just known for her voice, but for her ability to turn real-life experiences into songs that feel personal to millions of listeners.
+
+Her career represents the power of expression, proving that vulnerability can become strength when shared with the world.
+
+---
+
+<h3>From Small Dreams to Big Stages</h3>
+
+Taylor Swift began her journey with a passion for music at a young age, writing songs that reflected her thoughts and emotions.
+
+She started in country music, where her storytelling style quickly gained attention, setting her apart from other young artists.
+
+Her early success came from authenticity, connecting with listeners through relatable lyrics and heartfelt performances.
+
+As her career grew, she faced challenges and criticism, but used them as fuel to evolve and strengthen her identity.
+
+---
+
+<h3>The Evolution of an Artist</h3>
+
+<img class="right-profile-image" src="../Image/Taylor/Taylor2.png" alt="Taylor Swift performance">
+
+Taylor Swift became known for her ability to reinvent herself, transitioning from country to pop and exploring new musical styles.
+
+Each album marked a new chapter, reflecting her growth as both an artist and an individual.
+
+Her music evolved from simple love stories to deeper themes of identity, fame, and personal reflection.
+
+This constant transformation kept her relevant, proving that change is essential for longevity in the industry.
+
+---
+
+<h3>The Power of Storytelling</h3>
+
+
+
+What sets Taylor Swift apart is her storytelling, turning moments into melodies and emotions into lyrics that resonate globally.
+
+Her songs often feel like personal diaries, yet they connect universally, allowing listeners to see their own stories within her music.
+
+She has created a space where vulnerability is celebrated, making her not just an artist, but a voice for many.
+
+---
+
+<div class="wew">
+<h3>Iconic Albums</h3>
+<pre>
+<b>Fearless</b> — A breakthrough album that established her 
+as a rising star in the music industry.
+
+<b>Red</b> — A powerful mix of emotions, blending heartbreak 
+and growth into unforgettable songs.
+
+<b>1989</b> — A bold transition into pop, redefining her 
+sound and expanding her global reach.
+
+<b>Reputation</b> — A darker, more confident era exploring 
+fame and public perception.
+
+<b>Folklore</b> — A creative and introspective project 
+highlighting storytelling and artistry.
+
+<b>Midnights</b> — A reflection of thoughts, emotions, 
+and late-night introspection.
+</pre>
+</div>
+
+<h3>The Legacy</h3>
+
+Taylor Swift’s legacy is built on storytelling, reinvention, and emotional connection, proving that music is more than sound—it is a way of understanding life.
+
+She has shaped the industry not only through her success, but through her influence on songwriting, artist independence, and creative control.
+
+Her journey shows that staying true to one’s voice, while embracing change, is the key to lasting impact.
+
+<br>
+
+<i style="color: #ff3333;">
+“Just be yourself, there is no one better.”</i>
+
+<br><br>
+
+<a href="../index.html#celebrity" class="back-link">← Back to Celebrities</a>
+
+</div>
+</body>
+</html>

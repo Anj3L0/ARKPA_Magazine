@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Rowan Atkinson - ARKPA Magazine</title>
+<link rel="icon" type="image/png" href="../bean.png">
+<style>
+
+/*GLOBAL STYLES*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background: #eee7e7;
+    color: #222;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+    transition: 0.3s;
+}
+
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+html { scroll-padding-top: 120px; }
+
+
+/*box*/
+header {
+    background: #000;
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 10%;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.hamburger {
+    position: absolute;
+    left: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+.hamburger span {
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    transition: 0.3s;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+.hamburger-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 200px;
+    background: #000;
+    display: none;
+    flex-direction: column;
+    padding: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+.hamburger-menu.active {
+    display: flex;
+}
+
+.hamburger-menu a, .hamburger-menu button {
+    color: #fff;
+    padding: 10px;
+    text-decoration: none;
+    border: none;
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+}
+
+.hamburger-menu a:hover, .hamburger-menu button:hover {
+    background: #333;
+}
+
+header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    color: #ff3333;
+    letter-spacing: 2px;
+    flex-shrink: 0;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-left: 38px;
+}
+
+nav a {
+    font-weight: 500;
+    color: #fff;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+nav a:hover,
+nav a.active {
+    color: #ff3333;
+    font-weight: 700;
+}
+
+/*search bar ni gelo*/
+.search-bar {
+    display: flex;
+    gap: 0;
+    position: relative;
+    z-index: 5;
+    margin: 0;
+    min-width: 280px;
+    max-width: 400px;
+}
+
+.search-bar input {
+    color: white;
+    background: #333;
+    padding: 12px 18px;
+    font-size: 14px;
+    border-radius: 25px 0 0 25px;
+    border: 1px solid #413535;
+    outline: none;
+    width: 100%;
+}
+
+.search-bar button {
+    padding: 12px 18px;
+    border: none;
+    background: #ff3333;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 0 25px 25px 0;
+    transition: 0.3s;
+    font-size: 14px;
+}
+
+.search-bar button:hover { background: #cc0000; }
+
+
+
+
+
+
+img { 
+    max-width: 100%;
+    }
+.left-profile-image {
+    float: left;
+    width: 280px;
+    max-width: 100%;
+    margin: 0 20px 20px 0;
+    border-radius: 10px;
+    
+}
+.right-profile-image{
+    float: right;
+    width: 280px;
+    max-width: 100%;
+    margin: 0 20px 20px 0;
+    border-radius: 10px;
+}
+.wew {
+    float: left;
+    width: 40%;
+    padding: 10px;
+}
+.wow {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    color: #ff3333;
+}
+.back-link { display: inline-block; margin-bottom: 20px; padding: 10px 20px; background: #ff3333; color: #fff; text-decoration: none; border-radius: 5px; }
+.back-link:hover { background: #cc0000; }
+
+.hamburger {
+    position: absolute;
+    left: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+.hamburger span {
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    transition: 0.3s;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+.hamburger-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 200px;
+    background: #000;
+    display: none;
+    flex-direction: column;
+    padding: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+.hamburger-menu.active {
+    display: flex;
+}
+
+.hamburger-menu a, .hamburger-menu button {
+    color: #fff;
+    padding: 10px;
+    text-decoration: none;
+    border: none;
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+}
+
+.hamburger-menu a:hover, .hamburger-menu button:hover {
+    background: #333;
+}
+
+.Logo img {
+    width: 150px;
+    height: auto;
+}
+
+h1 {
+    color: #ff3333;
+}
+
+
+
+
+/* DARK MODE */
+body.dark-mode {
+    background: #121212;
+    color: #f1f1f1;
+}
+
+body.dark-mode header {
+    background: #000;
+}
+
+body.dark-mode .card,
+body.dark-mode .ccard {
+    background: #1e1e1e;
+    color: #fff;
+}
+
+body.dark-mode .card-content,
+body.dark-mode .ccard-content p {
+    color: #ccc;
+}
+
+body.dark-mode .quote{
+  color: #ff3333;
+}
+
+
+body.dark-mode .author{
+  color: #ccc;
+}
+
+
+
+
+body.dark-mode .hamburger-menu {
+    background: #111;
+}
+
+body.dark-mode footer {
+    background: #000;
+}
+
+
+
+
+</style>
+<header>
+<button class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+</button>
+<div class="container">
+    <div class="Logo">
+      <img src="../Image/Logo/1logo.png"  alt="ARKPA Logo">
+    </div>
+    <nav>
+      <div id="#Angelo" class="search-bar reveal">
+        <input type="text" placeholder="Search for a celebrity...">
+        <button>Search</button>
+    </div>
+        <a href="../index.html#slider" >Home</a>
+        <a href="../index.html#trending" >Trending</a>
+        <a href="../index.html#celebrity" >Celebrities</a>
+        <a href="../index.html#featured-filipino">Featured</a>
+        <a href="../index.html#founders" >Founders</a>
+        
+    </nav>
+    
+</div>
+<div class="hamburger-menu" id="hamburger-menu">
+    <a href="ARKPA_FILE/AboutUs.html">About Us</a>
+    <a href="#">Settings</a>
+    
+    <button id="dark-mode-toggle">Dark Mode</button>
+</div>
+</header>
+
+
+<div style="margin-left: 2.5%;" class="container">
+
+<h1>Rowan Atkinson</h1>
+<h2>The Man Who Made the World Laugh Without Words</h2>
+<img class="left-profile-image" src="../Image/Atkinson/aktinson.png" alt="Rowan Atkinson">
+“Silence That Spoke to the World”
+
+In a world where success is often defined by loud voices and bold personalities, Rowan Atkinson proved that sometimes, the quietest presence can leave the loudest impact.
+
+Born on January 6, 1955, in England, Rowan Atkinson did not begin life as the confident performer the world would come to love. Instead, he was a shy and introverted child, more comfortable with books and machines than with people. He grew up in a disciplined household and showed early signs of brilliance, particularly in academics. This led him to study Electrical Engineering at Newcastle University and later earn a master’s degree at The Queen’s College, Oxford.
+
+But behind his intelligence was a struggle that shaped his future—a speech disorder. Rowan had a stammer that made speaking difficult, especially in social situations. For many, this could have been a limitation too heavy to overcome. For Rowan, it became the foundation of his genius.
+
+While at Oxford, Rowan met writer Richard Curtis, and together they began exploring comedy. It was here that Rowan discovered something powerful: he didn’t need many words to be funny. Instead, he could use his facial expressions, body language, and timing to communicate humor in a way that words sometimes couldn’t.
+
+Inspired by silent film legend Charlie Chaplin, Rowan developed a style of comedy that was visual, universal, and deeply human. This approach would later become his signature—and his greatest strength.
+
+<h3>The Rise of a Global Icon</h3>
+
+Rowan’s early success came through the television show Not the Nine O’Clock News, where his talent for sketch comedy earned him critical recognition and a BAFTA Award. But his true breakthrough came when he created a character that would change his life forever.
+
+<h3>Mr. Bean</h3>
+<div class="right-profile-image">
+    <img src="../Image/Atkinson/bean.png" alt="Mr. Bean">
+</div>
+Mr. Bean was unlike any character on television. Childlike, awkward, and almost completely silent, he turned everyday situations into unforgettable comedy. What made Mr. Bean extraordinary was its simplicity—no complex dialogue, no cultural barriers, just pure human humor.
+
+The result was astonishing:
+
+Broadcast in over 200 countries
+Loved by audiences of all ages
+Became one of the most recognizable characters in entertainment history
+
+Through Mr. Bean, Rowan Atkinson didn’t just achieve fame—he achieved global connection.
+
+<h3>Beyond One Character</h3>
+
+Although many knew him as Mr. Bean, Rowan Atkinson refused to be limited by a single role. He proved his versatility through a variety of successful projects.
+
+In <b>Blackadder,</b> he showcased sharp, intelligent humor, playing witty and sarcastic characters across different historical periods. The show became one of Britain’s most respected sitcoms.
+
+He later expanded into film with <b>Johnny English,</b> where he played a clumsy yet lovable spy, parodying traditional action heroes. This role introduced him to a new generation and solidified his place in international cinema.
+
+From <mark>voice acting in The Lion King</mark> to modern streaming success in <b>Man vs. Bee,</b> Rowan continuously evolved, proving that his talent could adapt to any era.
+
+
+<br>
+
+
+
+
+
+
+
+
+
+
+<div class="wew">
+<h3>Achievements That Go Beyond Awards</h3>
+
+Rowan Atkinson’s career is filled with honors, including a BAFTA Award and being named a Commander of the Order of the British Empire (CBE). Yet his greatest achievements cannot be measured by trophies alone.
+
+<i>His true success lies in:</i>
+Creating a new form of modern silent comedy
+Building a character recognized across the globe
+Maintaining a career that spans over four decades
+Inspiring millions without relying on language
+He turned what many saw as a weakness into his most powerful advantage—and in doing so, he redefined what it means to be a comedian.
+
+</div>
+
+<h3>A Legacy of Laughter and Inspiration</h3>
+
+Rowan Atkinson’s journey is not just a story of fame—it is a story of transformation. From a quiet boy with a stammer to a global icon, he showed that success does not come from fitting in, but from embracing what makes you different.
+
+In every silent glance, every awkward movement, and every perfectly timed expression, Rowan created something rare: a language of laughter understood by the entire world.
+
+
+
+
+<br>
+
+<i style="color: #ff3333;">
+    i just want to make people laugh. I don't care if I'm a star or not. If I can make people laugh, that's all that matters to me. - Rowan Atkinson</i><br>
+    Rowan Atkinson didn’t just make people laugh—he changed the way the world understands comedy. His life is proof that even the quietest voice can echo across the globe, leaving a legacy that speaks louder than words.</i>
+<br>
+<br>
+<br>
+<br>
+<br>
+<a href="../index.html#celebrity" class="back-link">← Back to Celebrities</a>
+</div>
+</body>
+
+<script>
+// Hamburger menu toggle
+document.querySelector('.hamburger').addEventListener('click', () => {
+    document.querySelector('.hamburger').classList.toggle('active');
+    document.getElementById('hamburger-menu').classList.toggle('active');
+});
+
+// Dark mode toggle
+document.getElementById('dark-mode-toggle').addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+});
+
+
+
+
+// SEARCH UPGRADE (NO HTML CHANGES)
+const searchInput = document.querySelector('.search-bar input');
+const searchButton = document.querySelector('.search-bar button');
+const cards = document.querySelectorAll('.card');
+const slider = document.getElementById('slider');
+
+// CREATE RESULT SECTION (JS ONLY)
+let resultsSection = document.createElement('section');
+resultsSection.id = "search-results";
+resultsSection.style.display = "none";
+resultsSection.style.padding = "40px 10%";
+
+let title = document.createElement('h2');
+title.className = "section-title";
+title.innerText = "🔍 Search Results";
+
+let container = document.createElement('div');
+container.style.display = "grid";
+container.style.gridTemplateColumns = "repeat(auto-fit, minmax(250px, 1fr))";
+container.style.gap = "20px";
+
+resultsSection.appendChild(title);
+resultsSection.appendChild(container);
+
+// INSERT AT TOP (after header)
+document.body.insertBefore(resultsSection, document.body.children[1]);
+
+function performSearch() {
+    const query = searchInput.value.toLowerCase().trim();
+    container.innerHTML = "";
+
+    if (query === "") {
+        resultsSection.style.display = "none";
+        slider.style.display = "block";
+
+        document.querySelectorAll("section").forEach(sec => {
+            if (sec.id !== "search-results") {
+                sec.style.display = "block";
+            }
+        });
+
+        return;
+    }
+
+    // SHOW RESULTS
+    resultsSection.style.display = "block";
+
+    // HIDE OTHER SECTIONS
+    slider.style.display = "none";
+    document.querySelectorAll("section").forEach(sec => {
+        if (sec.id !== "search-results") {
+            sec.style.display = "none";
+        }
+    });
+
+    let found = false;
+
+    cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+
+        if (text.includes(query)) {
+            found = true;
+
+            // GET SECTION NAME FROM ID
+            const section = card.closest("section");
+            let sectionName = "Other";
+
+            if (section) {
+                if (section.id === "trending") sectionName = "Trending";
+                else if (section.id === "celebrity") sectionName = "Celebrity Legends";
+                else if (section.id === "featured-filipino") sectionName = "Featured Filipino";
+                else if (section.id === "founders") sectionName = "Founders";
+            }
+
+            // CLONE CARD
+            const clone = card.cloneNode(true);
+
+            // WRAPPER
+            const wrapper = document.createElement("div");
+
+            const label = document.createElement("p");
+            label.innerText = "" + sectionName;
+            label.style.color = "red";
+            label.style.fontWeight = "bold";
+            label.style.marginBottom = "5px";
+
+            wrapper.appendChild(label);
+            wrapper.appendChild(clone);
+
+            container.appendChild(wrapper);
+        }
+    });
+
+    if (!found) {
+        container.innerHTML = "<p>No results found.</p>";
+    }
+
+    // SCROLL TO TOP
+    window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+// EVENTS
+searchButton.addEventListener('click', performSearch);
+
+searchInput.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') performSearch();
+});
+
+
+const externalData = [
+  {
+    name: "Angelo",
+    url: "index.html#Angelo",
+    section: "Featured Filipino"
+  },
+  {
+    name: "Tom Holland",
+    url: "celebrities/tom-holland.html",
+    section: "Movies"
+  }
+];
+</script>
+
+
+</html>

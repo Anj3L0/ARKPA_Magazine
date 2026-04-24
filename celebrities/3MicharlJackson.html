@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Rowan Atkinson - ARKPA Magazine</title>
+<link rel="icon" type="image/png" href="../bean.png">
+<style>
+
+/*GLOBAL STYLES*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background: #eee7e7;
+    color: #222;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+    transition: 0.3s;
+}
+
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+html { scroll-padding-top: 120px; }
+
+
+/*box*/
+header {
+    background: #000;
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 10%;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.hamburger {
+    position: absolute;
+    left: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+.hamburger span {
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    transition: 0.3s;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+.hamburger-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 200px;
+    background: #000;
+    display: none;
+    flex-direction: column;
+    padding: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+.hamburger-menu.active {
+    display: flex;
+}
+
+.hamburger-menu a, .hamburger-menu button {
+    color: #fff;
+    padding: 10px;
+    text-decoration: none;
+    border: none;
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+}
+
+.hamburger-menu a:hover, .hamburger-menu button:hover {
+    background: #333;
+}
+
+header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    color: #ff3333;
+    letter-spacing: 2px;
+    flex-shrink: 0;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-left: 38px;
+}
+
+nav a {
+    font-weight: 500;
+    color: #fff;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+nav a:hover,
+nav a.active {
+    color: #ff3333;
+    font-weight: 700;
+}
+
+/*search bar ni gelo*/
+.search-bar {
+    display: flex;
+    gap: 0;
+    position: relative;
+    z-index: 5;
+    margin: 0;
+    min-width: 280px;
+    max-width: 400px;
+}
+
+.search-bar input {
+    color: white;
+    background: #333;
+    padding: 12px 18px;
+    font-size: 14px;
+    border-radius: 25px 0 0 25px;
+    border: 1px solid #413535;
+    outline: none;
+    width: 100%;
+}
+
+.search-bar button {
+    padding: 12px 18px;
+    border: none;
+    background: #ff3333;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 0 25px 25px 0;
+    transition: 0.3s;
+    font-size: 14px;
+}
+
+.search-bar button:hover { background: #cc0000; }
+
+
+
+
+
+
+img { 
+    max-width: 100%;
+    }
+.left-profile-image {
+    float: left;
+    width: 280px;
+    max-width: 100%;
+    margin: 0 20px 20px 0;
+    border-radius: 10px;
+    
+}
+.right-profile-image{
+    float: right;
+    width: 280px;
+    max-width: 100%;
+    margin: 0 20px 20px 0;
+    border-radius: 10px;
+}
+.wew {
+    float: left;
+    width: 40%;
+    padding: 10px;
+}
+.wow {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    color: #ff3333;
+}
+.back-link { display: inline-block; margin-bottom: 20px; padding: 10px 20px; background: #ff3333; color: #fff; text-decoration: none; border-radius: 5px; }
+.back-link:hover { background: #cc0000; }
+
+.hamburger {
+    position: absolute;
+    left: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+.hamburger span {
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    transition: 0.3s;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+.hamburger-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 200px;
+    background: #000;
+    display: none;
+    flex-direction: column;
+    padding: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+.hamburger-menu.active {
+    display: flex;
+}
+
+.hamburger-menu a, .hamburger-menu button {
+    color: #fff;
+    padding: 10px;
+    text-decoration: none;
+    border: none;
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+}
+
+.hamburger-menu a:hover, .hamburger-menu button:hover {
+    background: #333;
+}
+
+.Logo img {
+    width: 150px;
+    height: auto;
+}
+
+h1 {
+    color: #ff3333;
+}
+
+
+
+
+/* DARK MODE */
+body.dark-mode {
+    background: #121212;
+    color: #f1f1f1;
+}
+
+body.dark-mode header {
+    background: #000;
+}
+
+body.dark-mode .card,
+body.dark-mode .ccard {
+    background: #1e1e1e;
+    color: #fff;
+}
+
+body.dark-mode .card-content,
+body.dark-mode .ccard-content p {
+    color: #ccc;
+}
+
+body.dark-mode .quote{
+  color: #ff3333;
+}
+
+
+body.dark-mode .author{
+  color: #ccc;
+}
+
+
+
+
+body.dark-mode .hamburger-menu {
+    background: #111;
+}
+
+body.dark-mode footer {
+    background: #000;
+}
+
+
+
+
+</style>
+<header>
+<button class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+</button>
+<div class="container">
+    <div class="Logo">
+      <img src="../Image/Logo/1logo.png"  alt="ARKPA Logo">
+    </div>
+    <nav>
+      
+        <a href="../index.html#slider" >Home</a>
+        <a href="../index.html#trending" >Trending</a>
+        <a href="../index.html#celebrity" >Celebrities</a>
+        <a href="../index.html#featured-filipino">Featured</a>
+        <a href="../index.html#founders" >Founders</a>
+        
+    </nav>
+    
+</div>
+<div class="hamburger-menu" id="hamburger-menu">
+    <a href="ARKPA_FILE/AboutUs.html">About Us</a>
+    <a href="#">Settings</a>
+    
+    <button id="dark-mode-toggle">Dark Mode</button>
+</div>
+</header>
+
+
+<div style="margin-left: 2.5%;" class="container">
+
+<div class="container">
+
+<h1>Michael Jackson</h1>
+<h2>The King of Pop, a  moonwalk to fame</h2>
+<img class="left-profile-image" src="../Image/MichaelJackson/Michael.jpg" alt="Michael Jackson"> 
+
+Michael Jackson’s story is one of extraordinary talent, relentless ambition, and a profound impact on the world of music and culture. From his early days as a child star to his reign as the King of Pop, Michael’s journey is a testament to the power of music to transcend boundaries and connect people worldwide.
+
+<b>Michael Joseph Jackson</b> was born on August 29, 1958, in Gary, Indiana, and entertained audiences nearly his entire life. As the eighth of ten children in the Jackson family, he began performing at a young age with his brothers in the group known as The Jackson 5. Their infectious energy and catchy tunes quickly captured the hearts of fans worldwide, setting the stage for Michael’s future stardom.
+
+His father Joseph Jackson recognized Michael’s exceptional talent and pushed him to excel, often subjecting him to rigorous rehearsals and demanding perfection. Despite the challenges, Michael’s dedication and passion for music propelled him forward, leading to a solo career that would redefine the music industry.
+
+<h3>A Musical Prodigy</h3>
+
+Michael's singing and dancing talents were amazingly mature, and he soon became the dominant voice and face of The Jackson 5. An opening act for such soul groups as the O-Jays and James Brown, it was Gladys Knight (not Diana Ross) who officially brought the group to Berry Gordy's atetention,and by 1969, the boys were producing back-to-back chart-busting hits as Motown artists "I Want You Back", "ABC", "Never Can Say Goodbye", "Got to Be There", etc.
+
+<h3>The Jackson 5</h3>
+<div class="right-profile-image">
+    <img src="../Image/MichaelJackson/670021218_934529439374438_2170233298598673288_n.png" alt="Michael Jackson">
+</div>
+As a product of the 1970s, the boys were a sensation, and Michael's star was rising. The Jackson 5's success was unprecedented, and they became one of the most popular acts of the decade, successfully evolving from a group like The Temptations to a disco phenomenon. Michael's charisma and talent were undeniable, and he quickly became a household name.
+The result was astonishing:
+The Jackson 5's first four singles all reached number one on the Billboard Hot 100 chart, making them the first group to achieve such a feat. Michael's voice was a key factor in their success, and his ability to connect with audiences of all ages made him a beloved figure in the music industry.
+
+<h3>The Solo Career</h3>
+
+Michael Jackson’s solo career (1971–2009) redefined pop music, spanning over four decades with estimated sales of over <b>500 million records</b>. Known as the <b>"King of Pop,"</b> he achieved 13 Billboard Hot 100 number-one singles, groundbreaking music videos, and the best-selling album of all time, Thriller (1982). His signature sound, iconic dance moves like the "Moonwalk," and massive world tours made him a defining global cultural icon. 
+
+From his early hits like "Don't Stop 'Til You Get Enough" to later successes such as "Black or White," Michael's influence on music, fashion, and dance is immeasurable. His philanthropic efforts and advocacy for social causes further solidified his legacy as one of the most influential entertainers in history.
+
+
+
+
+<br>
+
+
+
+
+
+
+
+
+
+
+<div class="wew">
+<h3>A Global Spectacle</h3>
+
+Michael Jackson's influence extended far beyond music. He was a global phenomenon, breaking racial barriers and uniting people through his artistry. His music videos were groundbreaking, often resembling short films with elaborate storylines and choreography. He used his platform to address social issues, advocating for racial equality and humanitarian causes.
+
+<mark>Super Bowl XXVII Halftime Show (1993):</mark> Michael Jackson transformed the Super Bowl halftime from a simple marching band intermission into a major pop-culture spectacle, boosting ratings for the first time in history.
+</div>
+
+<h3>The Pop Culture Influence</h3>
+
+As a <i>"cultural earthquake,"</i> he transitioned from a child prodigy to a global phenomenon, with his tours, such as the Bad (1987-1989), Dangerous (1992-1993), and HIStory (1996-1997) tours, being regarded as some of the most successful in history
+
+
+
+<br>
+
+<i style="color: #ff3333;">
+    "If you want to make the world a better place, take a look at yourself, and make a change."  <br>
+    - Michael Jackson</i> <br>
+Michael Jackson helped desegregate popular music in the United States and introduced an era of multiculturalism globally. Through his dance, fashion, and redefinition of music videos, Jackson proliferated visual performance for musical artists. His influence on artists across genres and generations is profound, with many citing him as a major inspiration for their work. Michael's legacy continues to shape the music industry and popular culture, making him an enduring icon whose impact will be felt for generations to come.
+<br>
+<br>
+<br>
+<br>
+<br>
+<a href="../index.html#celebrity" class="back-link">← Back to Celebrities</a>
+</div>
+</body>
+<script>
+// Hamburger menu toggle
+document.querySelector('.hamburger').addEventListener('click', () => {
+    document.querySelector('.hamburger').classList.toggle('active');
+    document.getElementById('hamburger-menu').classList.toggle('active');
+});
+
+// Dark mode toggle
+document.getElementById('dark-mode-toggle').addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+});
+
+
+
+
+
+</script>
+
+
+</html>

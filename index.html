@@ -1,0 +1,1918 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>ARKPA Spotlight Magazine - Celebrity Legends</title>
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="Image/Logo/1logo.png">
+<style>
+
+
+/*GLOBAL STYLES*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background: #eee7e7;
+    color: #222;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+    transition: 0.3s;
+}
+
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+html { scroll-padding-top: 120px; }
+
+
+/*box*/
+header {
+    background: #000;
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 10%;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.hamburger {
+    position: absolute;
+    left: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+.hamburger span {
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    transition: 0.3s;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+.hamburger-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 200px;
+    background: #000;
+    display: none;
+    flex-direction: column;
+    padding: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+.hamburger-menu.active {
+    display: flex;
+}
+
+.hamburger-menu a, .hamburger-menu button {
+    color: #fff;
+    padding: 10px;
+    text-decoration: none;
+    border: none;
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+}
+
+.hamburger-menu a:hover, .hamburger-menu button:hover {
+    background: #333;
+}
+
+header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    color: #ff3333;
+    letter-spacing: 2px;
+    flex-shrink: 0;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-left: 38px;
+}
+
+nav a {
+    font-weight: 500;
+    color: #fff;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+nav a:hover,
+nav a.active {
+    color: #ff3333;
+    font-weight: 700;
+}
+
+/*search bar ni gelo*/
+.search-bar {
+    display: flex;
+    gap: 0;
+    position: relative;
+    z-index: 5;
+    margin: 0;
+    min-width: 280px;
+    max-width: 400px;
+}
+
+.search-bar input {
+    color: white;
+    background: #333;
+    padding: 12px 18px;
+    font-size: 14px;
+    border-radius: 25px 0 0 25px;
+    border: 1px solid #413535;
+    outline: none;
+    width: 100%;
+}
+
+.search-bar button {
+    padding: 12px 18px;
+    border: none;
+    background: #ff3333;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 0 25px 25px 0;
+    transition: 0.3s;
+    font-size: 14px;
+}
+
+.search-bar button:hover { background: #cc0000; }
+
+/*SLIDERRR*/
+.slider {
+    position: relative;
+    height: 590px;
+    overflow: hidden;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.slide.active { opacity: 1; }
+.slide img { width: 100%; height: 100%; object-fit:fill; }
+
+.slide-text {
+    position: absolute;
+    bottom: 40px;
+    left: 10%;
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    padding: 25px 30px;
+    border-radius: 10px;
+    max-width: 600px;
+}
+
+.slide-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.slide-text p { font-size: 16px; }
+
+/*SECTION TITLES*/
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: #cc0000;
+    margin-bottom: 30px;
+    border-left: 5px solid #cc0000;
+    padding-left: 10px;
+}
+
+/* GRIDS*/
+.celebrity-grid,
+.trending-grid,
+.story-grid,
+.founder-grid,
+.featured-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+/*CARDS*/
+.card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    transition: 0.4s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.card img {
+    width: 100%;
+    height: 180px; /* shorter image */
+    object-fit: cover;
+}
+
+.search-active .card.search-match {
+    background: transparent;
+    box-shadow: none;
+    border-radius: 0;
+    width: 360px;
+    max-width: 360px;
+    margin: 0 0 30px 0;
+    display: block;
+}
+
+.search-active .card.search-match img {
+    border-radius: 0;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.search-active .trending-grid,
+.search-active .celebrity-grid,
+.search-active .featured-grid,
+.search-active .founder-grid,
+.search-active .story-grid {
+    display: block;
+}
+
+.search-active section {
+    padding-left: 20px;
+}
+
+.card-content {
+    padding: 12px; /* tighter box */
+}
+
+.card-content h3 {
+    color: #ff3333;
+    font-size: 14px; /* smaller title */
+    margin-bottom: 6px;
+}
+
+.card-content .info {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.card-content p {
+    font-size: 13px; /* tighter text */
+    line-height: 1.4;
+}
+
+.card-content a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 16px;
+    color: #ff3333;
+    text-decoration: none;
+    border: 2px solid #ff3333;
+    border-radius: 5px;
+    font-weight: 500;
+    opacity: 0;
+    transition: 0.3s;
+    background: transparent;
+}
+
+.card:hover .card-content a {
+    opacity: 1;
+}
+
+.card-content a:hover {
+    background: #ff3333;
+    color: #fff;
+}
+
+.card-content .quote {
+    font-size: 12px;
+    font-style: italic;
+    color: #ff3333;
+    margin-top: 8px;
+    border-left: 4px solid #ff3333;
+    padding-left: 10px;
+}
+
+/*FOOTER*/
+footer {
+    background: #000;
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
+.Logo img {
+    width: 150px;
+    height: auto;
+}
+
+
+
+/*trend*/
+.ccard {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    transition: 0.4s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.card img { width: 100%; height: 320px; object-fit: cover; }
+
+.ccard-content { padding: 20px; }
+.ccard-content h3 {
+    color: #cc0000;
+    margin-bottom: 10px;
+    font-family: 'Playfair Display', serif;
+}
+
+.ccard-content .info {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.ccard-content p { font-size: 15px; line-height: 1.6; }
+
+.ccard-content a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 16px;
+    color: #ff3333;
+    text-decoration: none;
+    border: 2px solid #ff3333;
+    border-radius: 5px;
+    font-weight: 500;
+    opacity: 0;
+    transition: 0.3s;
+    background: transparent;
+}
+
+.ccard:hover .ccard-content a {
+    opacity: 1;
+}
+
+.ccard-content a:hover {
+    background: #ff3333;
+    color: #fff;
+}
+
+.ccard-content .quote {
+    font-size: 16px;
+    font-style: italic;
+    color: #ff3333;
+    margin-top: 15px;
+    border-left: 4px solid #ff3333;
+    padding-left: 10px;
+}
+
+.About{
+  font-size: 50px;
+}
+
+
+/*MET GALA SLIDER*/
+.Mslider {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+  scroll-behavior: smooth;
+}
+
+.Mcard {
+  min-width: 300px;
+  
+  text-align: center;
+}
+
+.Mcard img {
+  width: 100%;
+  height: 80%;
+  object-fit: cover;
+  position: sticky;
+  border-radius: 12px;
+  display: block;
+}
+.Mname {
+  color: rgb(133, 0, 0);
+  font-family: serif;
+  margin-left: 20px;
+  text-align: left;
+  margin-top: 8px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+
+
+
+
+/* MAIN GRID */
+.ycontainer {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* LEFT */
+.ycontainer .yleft .ycard {
+  margin-bottom: 20px;
+}
+
+.ycard img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+.ycard h3 {
+  font-size: 16px;
+  margin: 8px 0;
+}
+
+/* CENTER */
+.center {
+  text-align: center;
+}
+
+.main-img {
+  margin-left: 50px;
+  text-align: center;
+  width: 480px;
+  border-radius: 10px;
+  min-width: 490px;
+  height: 650px;
+  object-fit: fill;
+}
+
+.title {
+  font-size: 22px;
+  margin-top: 10px;
+}
+
+/* RIGHT */
+.right .news {
+  margin-bottom: 30px;
+  text-align:left;
+}
+
+
+
+.news h4 {
+  text-align: left;
+  
+  font-size: 14px;
+}
+
+.news img{
+  width: 80px;
+  float: right;
+  margin-left: 2px;
+}
+
+/* TAG + AUTHOR */
+.tag {
+  font-size: 10px;
+  color: gray;
+  margin-top: 5px;
+  letter-spacing: 1px;
+}
+
+.author {
+  font-size: 15px;
+  color: rgb(53, 48, 48);
+}
+
+
+
+
+/* DARK MODE */
+body.dark-mode {
+    background: #121212;
+    color: #f1f1f1;
+}
+
+body.dark-mode header {
+    background: #000;
+}
+
+body.dark-mode .card,
+body.dark-mode .ccard {
+    background: #1e1e1e;
+    color: #fff;
+}
+
+body.dark-mode .card-content,
+body.dark-mode .ccard-content p {
+    color: #ccc;
+}
+
+body.dark-mode .quote{
+  color: #ff3333;
+}
+
+
+body.dark-mode .author{
+  color: #ccc;
+}
+
+
+
+
+body.dark-mode .hamburger-menu {
+    background: #111;
+}
+
+body.dark-mode footer {
+    background: #000;
+}
+
+
+
+
+
+
+</style>
+</head>
+
+<body>
+
+<!--header psp--> 
+<header>
+<button class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+</button>
+<div class="container">
+    <div class="Logo">
+      <img src="Image/Logo/1logo.png" alt="ARKPA Logo">
+    </div>
+    <nav>
+      <div id="top" class="search-bar reveal">
+        <input type="text" placeholder="Search for a celebrity...">
+        <button>Search</button>
+    </div>
+        <a href="#slider">Home</a>
+        <a href="#trending">Trending</a>
+        <a href="#celebrity">Celebrities</a>
+        <a href="#featured-filipino">Featured</a>
+        <a href="#founders">About Us</a>
+        
+    </nav>
+    
+</div>
+<div class="hamburger-menu" id="hamburger-menu">
+    <a href="#founders">About Us</a>
+    <a href="#">Settings</a>
+    <button id="dark-mode-toggle">Dark Mode</button>
+</div>
+</header>
+
+<!--HERO SLIDER-->
+<section id="slider">
+<div class="slider">
+    <div class="slide active">
+        <img src="Image/Slider1.png">
+        <div class="slide-text">
+            <h2>Passion Creates Legends</h2>
+            <p>Explore the journeys of iconic celebrities who changed the world.</p>
+        </div>
+    </div>
+    <div class="slide">
+        <img src="Image/Slider2.png">
+        <div class="slide-text">
+            <h2>From Struggle to Spotlight</h2>
+            <p>Hard work and dedication built the careers of these stars.</p>
+        </div>
+    </div>
+</div>
+<br>
+
+<div class="ycontainer">
+
+  <!-- LEFT COLUMN -->
+  <div class="yleft">
+    <div class="ycard">
+      <img src="Image/st/fashion.png">
+      <p class="tag">Fashion</p>
+      <h3>Fashion Weeks are going viral because of bold, eye-catching designs. Designers are pushing limits with oversized silhouettes, futuristic fabrics, and dramatic runway performances.</h3>
+      <p class="author"></p>
+    </div>
+
+    <div class="ycard">
+      <img src="Image/st/niana.png">
+      <p class="tag">Coachella</p>
+      <h3>Niana Guererro performs at
+        Coachella during D4vd's set</h3>
+      <p class="author">
+        GMA News
+      </p>
+    </div>
+  </div>
+
+  <!-- CENTER COLUMN -->
+  <div class="center">
+    <img src="Image/st/eilish.jpeg" class="main-img">
+    <p class="tag center-tag">RUNWAY</p>
+    <h1 class="title">
+     The Unstoppable Fashion Evolution of Billie Eilish:
+    From Bold to Breathtaking
+    </h1>
+  </div>
+
+  <!-- RIGHT COLUMN -->
+  <div class="right"><b style="color: red;">NEWS</b>
+    <div class="news">
+      <p class="tag">BOOKS</p>
+      <img src="Image/st/becoming.png">
+      <h4>Becoming – Michelle Obama</h4>
+      <p class="author">Becoming is a memoir written by Michelle Obama, where she shares her life story—from childhood to becoming the First Lady of the United States.</p>
+    </div>
+
+    <div class="news">
+      <p class="tag">MOVIE</p>
+      <img src="Image/st/devil.png">
+      <h4>The Devil Wears Prada</h4>
+      
+      <p class="author">The movie follows a young journalist who gets a job at a powerful fashion magazine and works under a very strict boss.</p>
+    </div>
+
+    <div class="news">
+      <p class="tag">MAGAZINE</p>
+      <img src="Image/st/vogue.png">
+      <h4>VOGUE</h4>
+      
+      <p class="author">Vogue is one of the most famous fashion magazines in the world.</p>
+    </div>
+
+    <div class="news">
+      <p class="tag">BEAUTY</p>
+      <img src="Image/st/Anne_Hathaway.png">
+      <h4>Anne Hathaway</h4>
+      <p class="author">known as a “beauty” in the celebrity world not just because of her looks—but talent and confidence.</p>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+<h2 class="section-title reveal" style="text-align: center;" center;>Celebrity Met Gala</h2>
+<div class="Mslider">
+  
+  <div class="Mcard">
+    <img src="Image/Fashion/zendaya.png">
+    <div class="Mname">Zendaya</div>
+  </div>
+  
+  <div class="Mcard">
+    <img src="Image/Fashion/tyla.png">
+    <div class="Mname">Tyla</div>
+  </div>
+  
+  <div class="Mcard">
+    <img src="Image/Fashion/jennie.png">
+    <div class="Mname">Jennie</div>
+  </div>
+
+  <div class="Mcard">
+    <img src="Image/Fashion/3.png">
+    <div class="Mname">Janelle</div>
+  </div>
+
+  <div class="Mcard">
+    <img src="Image/Fashion/5.png">
+    <div class="Mname">Dua Lipa</div>
+  </div>
+
+  <div class="Mcard">
+    <img src="Image/Fashion/6.png">
+    <div class="Mname">Gustav Magnar Witzoe</div>
+  </div>
+
+  <div class="Mcard">
+    <img src="Image/Fashion/piano.png">
+    <div class="Mname">André 3000</div>
+  </div>
+
+  <div class="Mcard">
+    <img src="Image/Fashion/8.png">
+    <div class="Mname">Charton & Chulkin</div>
+  </div>
+
+  <div class="Mcard">
+    <img src="Image/Fashion/ariana.png">
+    <div class="Mname">Ariana Grande</div>
+  </div>
+
+  <div class="Mcard">
+    <img src="Image/Fashion/9.png">
+    <div class="Mname">Rihanna</div>
+  </div>
+
+  <div class="Mcard">
+    <img src="Image/Fashion/10.png">
+    <div class="Mname">Haris Reed</div>
+  </div>
+
+  <div class="Mcard">
+    <img src="Image/Fashion/ortega.png">
+    <div class="Mname">Jenna Ortega</div>
+  </div>
+
+  <div class="Mcard">
+    <img src="Image/Fashion/Lisa.png">
+    <div class="Mname">Lalisa</div>
+  </div>
+
+  <div class="Mcard">
+    <img src="Image/Fashion/hathaway.png">
+    <div class="Mname">Anne Hathaway</div>
+  </div>
+
+  <div class="Mcard">
+    <img src="Image/Fashion/11.png">
+    <div class="Mname">Anok Yai</div>
+  </div>
+
+  <div class="Mcard">
+    <img src="Image/Fashion/12.png">
+    <div class="Mname">Damson Idris</div>
+  </div>
+
+  <div class="Mcard">
+    <img src="Image/Fashion/13.png">
+    <div class="Mname">Lewis Hamilton</div>
+  </div>
+
+  <div class="Mcard">
+    <img src="Image/Fashion/14.png">
+    <div class="Mname">Pedro Pascal</div>
+  </div>
+
+  <div class="Mcard">
+    <img src="Image/Fashion/15.png">
+    <div class="Mname">Diljit Dosanjh</div>
+  </div>
+
+
+
+</div>
+
+
+
+</section>
+
+<br>
+
+<!--TRENDING-->
+<section id="trending">
+<h2  class="section-title reveal">🔥 Trending Now</h2>
+
+<div class="trending-grid reveal">
+    <div class="card trend-card">
+        <img src="Image/BTS/BTS.png">
+        <div class="ccard-content">
+            <h3>BTS</h3>
+            <p>BTS is trending worldwide with their 2026 comeback, featuring the hit album "Arirang", a massive world tour, and new cinematic music videos like “Hooligan,” while their documentary BTS: The Return and the viral “Namjooning” trend—by Kim Nam-joon—show their strong influence on both music and global culture.
+            </p>
+            <p class="quote"></p>
+            <a href="celebrities/bts.html">See More</a>
+        </div>
+    </div>
+
+    <div class="card trend-card">
+        <img src="Image/Spider/S.png">
+        <div class="ccard-content">
+            <h3>Tom Holland</h3>
+            <p>The newest Spider-Man movie starring Tom Holland is called “Spider-Man: Brand New Day”, and it’s coming out on July 31, 2026. It continues the story after No Way Home, where no one remembers Peter Parker anymore, so he’s living a lonely life while still protecting New York.</p>
+            <p class="quote">"Great power, come with great responsibility"</p>
+            <a href="celebrities/tom-holland.html">See More</a>
+        </div>
+    </div>
+</div>
+</section>
+
+<!--GLOBAL CELEBRITIES
+-->
+<section id="celebrity"> 
+  <h2 class="section-title reveal">🌟 Celebrity Legends</h2>
+  <div class="celebrity-grid reveal">
+
+    <!-- 1. Rowan Atkinson -->
+    <div class="card">
+      <img src="Image/Atkinson/aktinson.png" alt="Rowan Atkinson">
+      <div class="card-content">
+        <h3>Rowan Atkinson</h3>
+        <div class="info">British | Actor & Comedian</div>
+        <p>
+          Overcame childhood stuttering and turned it into a unique comedic style.
+          Mr. Bean’s silent comedy and precise expressions made him a global icon.
+        </p>
+        <p class="quote">
+          "I don’t want to be a star, I just want to make people laugh."
+        </p>
+        <a href="celebrities/1rowan-atkinson.html">See More</a>
+      </div>
+    </div>
+
+    <!-- 2. Jackie Chan -->
+    <div class="card">
+      <img src="Image/JackieChan/chan.png" alt="Jackie Chan">
+      <div class="card-content">
+        <h3>Jackie Chan</h3>
+        <div class="info">Hong Kong | Actor & Martial Artist</div>
+        <p>
+          Trained in martial arts from a young age and performed his own stunts,
+          redefining action cinema with humor and discipline.
+        </p>
+        <p class="quote">
+          "Do not let circumstances control you. You create your path."
+        </p>
+        <a href="celebrities/2JackieChan.html">See More</a>
+      </div>
+    </div>
+
+    <!-- 3. Michael Jackson -->
+    <div class="card">
+      <img src="Image/MichaelJackson/Michael.jpg" alt="Michael Jackson">
+      <div class="card-content">
+        <h3>Michael Jackson</h3>
+        <div class="info">American | Singer & Dancer</div>
+        <p>
+          The King of Pop revolutionized music, dance, and music videos,
+          pushing creative boundaries worldwide.
+        </p>
+        <p class="quote">
+          "If you enter this world knowing you are loved and leave knowing the same, everything in between is bonus."
+        </p>
+        <a href="celebrities/3MicharlJackson.html">See More</a>
+      </div>
+    </div>
+
+    <!-- 4. Oprah Winfrey -->
+    <div class="card">
+      <img src="Image/Oprah/1OPRAH.png">
+      <div class="card-content">
+        <h3>Oprah Winfrey</h3>
+        <div class="info">American | TV Host & Philanthropist</div>
+        <p>
+          Overcame poverty and adversity to become a global media icon,
+          empowering millions through empathy and storytelling.
+        </p>
+        <p class="quote">
+          "Turn your wounds into wisdom."
+        </p>
+        <a href="celebrities/5Oprah.html">See More</a>
+      </div>
+    </div>
+
+    <!-- 5. Marilyn Monroe -->
+    <div class="card">
+      <img src="Image/Monroe/monroe.png" alt="Marilyn Monroe">
+      <div class="card-content">
+        <h3>Marilyn Monroe</h3>
+        <div class="info">American | Actress & Model</div>
+        <p>
+          Became one of Hollywood's most iconic stars despite early struggles,
+          inspiring artists and dreamers worldwide.
+        </p>
+        <p class="quote">
+          "Imperfection is beauty, madness is genius."
+        </p>
+        <a href="celebrities/4Moroe.html">See More</a>
+      </div>
+    </div>
+
+    <!-- 6. Dwayne Johnson -->
+    <div class="card">
+      <img src="Image/Rock/Dwayne-Johnson.png" alt="Dwayne Johnson">
+      <div class="card-content">
+        <h3>Dwayne Johnson</h3>
+        <div class="info">American | Actor & Former Wrestler</div>
+        <p>
+          From wrestling champion to Hollywood superstar through relentless
+          work ethic, humility, and discipline.
+        </p>
+        <p class="quote">
+          "Blood, sweat and respect. The first two you give, the last you earn."
+        </p>
+        <a href="celebrities/6.html">See More</a>
+      </div>
+    </div>
+
+    <!-- 7. Leonardo DiCaprio -->
+    <div class="card">
+      <img src="Image/Leonardo/Leonardo.png" alt="Leonardo DiCaprio">
+      <div class="card-content">
+        <h3>Leonardo DiCaprio</h3>
+        <div class="info">American | Actor & Environmentalist</div>
+        <p>
+          Rose from teen roles to global superstardom and became a passionate
+          environmental activist.
+        </p>
+        <p class="quote">
+          "Every next level of your life will demand a different version of you."
+        </p>
+        <a href="celebrities/7.html">See More</a>
+      </div>
+    </div>
+
+    <!-- 8. Taylor Swift -->
+    <div class="card">
+      <img src="Image/Taylor/Swift.png" alt="Taylor Swift">
+      <div class="card-content">
+        <h3>Taylor Swift</h3>
+        <div class="info">American | Singer & Songwriter</div>
+        <p>
+          From country roots to global pop dominance, turning vulnerability
+          and storytelling into global art.
+        </p>
+        <p class="quote">
+          "Just be yourself, there is no one better."
+        </p>
+        <a href="celebrities/8.html">See More</a>
+      </div>
+    </div>
+
+    <!-- 9. Will -->
+    <div class="card">
+      <img src="Image/Smith/willSmith.png" alt="Chris Evans">
+      <div class="card-content">
+        <h3>Will Smith</h3>
+        <div class="info">American | Actor & Musician</div>
+        <p>
+          From rap sensation to blockbuster superstar, 
+          inspiring millions with optimism and drive.
+        </p>
+        <p class="quote">
+          "You don’t set out to build a wall. You set out to build a dream."
+        </p>
+        <a href="celebrities/9.html">See More</a>
+      </div>
+    </div>
+
+    <!-- 10. Scarlett Johansson -->
+    <div class="card">
+      <img src="Image/Scarlet/Scarlet.png" alt="Scarlett Johansson">
+      <div class="card-content">
+        <h3>Scarlett Johansson</h3>
+        <div class="info">American | Actress & Producer</div>
+        <p>
+          A dynamic performer who advocates for artistic empowerment
+          and creative independence.
+        </p>
+        <p class="quote">
+          "I want to inspire people to believe in their dreams."
+        </p>
+        <a href="celebrities/10.html">See More</a>
+      </div>
+    </div>
+
+    <!-- 11. Elon Musk -->
+    <div class="card">
+      <img src="Image/Elon/Elon.png" alt="Elon Musk">
+      <div class="card-content">
+        <h3>Elon Musk</h3>
+        <div class="info">South African-born | Entrepreneur & Innovator</div>
+        <p>
+          Reinvented electric vehicles, space travel, and renewable tech
+          through bold vision and ambition.
+        </p>
+        <p class="quote">
+          "When something is important enough, you do it even if the odds are not in your favor."
+        </p>
+        <a href="celebrities/11.html">See More</a>
+      </div>
+    </div>
+
+    <!-- 12. Meryl Streep -->
+    <div class="card">
+      <img src="Image/Meryle/Meryle.png" alt="Meryl Streep">
+      <div class="card-content">
+        <h3>Meryl Streep</h3>
+        <div class="info">American | Actress</div>
+        <p>
+          Celebrated for her unmatched craft and empathy,
+          becoming a benchmark of excellence in acting.
+        </p>
+        <p class="quote">
+          "The great gift of human beings is that we have the power of empathy."
+        </p>
+        <a href="celebrities/12.html">See More</a>
+      </div>
+    </div>
+
+    <!-- 13. Serena Williams -->
+    <div class="card">
+      <img src="Image/Serena/Serena.png" alt="Serena Williams">
+      <div class="card-content">
+        <h3>Serena Williams</h3>
+        <div class="info">American | Tennis Legend</div>
+        <p>
+          Dominated tennis for over two decades with power,
+          resilience, and competitive spirit.
+        </p>
+        <p class="quote">
+          "Whatever fear I have inside me, my desire to win is always stronger."
+        </p>
+        <a href="celebrities/13.html">See More</a>
+      </div>
+    </div>
+
+    <!-- 14. Brad Pitt -->
+    <div class="card">
+      <img src="Image/Barad/BRAD.png" alt="Brad Pitt">
+      <div class="card-content">
+        <h3>Brad Pitt</h3>
+        <div class="info">American | Actor & Producer</div>
+        <p>
+          Evolved from heartthrob to critically acclaimed artist,
+          passionate about powerful storytelling.
+        </p>
+        <p class="quote">
+          "You must lose everything to gain the world."
+        </p>
+        <a href="celebrities/14.html">See More</a>
+      </div>
+    </div>
+
+    <!-- 15. Billie -->
+    <div class="card">
+      <img src="Image/BILLIE/BilliEiii.png" alt="Billie Eilish">
+      <div class="card-content">
+        <h3>Billie Eilish</h3>
+        <div class="info">American | Singer & Songwriter</div>
+        <p>
+          one of the biggest pop stars in the world, known for her unique voice, emotional songs, and dark, artistic style.
+        </p>
+        <p class="quote">
+          “Be exactly who you want to be.”
+        </p>
+        <a href="celebrities/15.html">See More</a>
+      </div>
+    </div>
+
+    <!-- 16. Evans -->
+    <div class="card">
+      <img src="Image/Evans/Evans.png" alt="Will Smith">
+      <div class="card-content">
+        <h3>Chris Evans</h3>
+        <div class="info">American | Actor</div>
+        <p>
+          Best known as Captain America, combining discipline and humility to inspire millions.
+        </p>
+        <p class="quote">
+          "I try to live by example and be a good human."
+        </p>
+        <a href="celebrities/16.html">See More</a>
+      </div>
+    </div>
+
+    <!-- 17. Keanu Reeves -->
+    <div class="card">
+      <img src="Image/Keanu/Keanu.png" alt="Keanu Reeves">
+      <div class="card-content">
+        <h3>Keanu Reeves</h3>
+        <div class="info">Canadian | Actor</div>
+        <p>
+          Known for iconic roles and humble personality,
+          admired for resilience and kindness.
+        </p>
+        <p class="quote">
+          "The simple act of paying attention can take you a long way."
+        </p>
+        <a href="celebrities/17.html">See More</a>
+      </div>
+    </div>
+
+    <!-- 18. IU -->
+    <div class="card">
+      <img src="Image/UI/IU.png" alt="IU">
+      <div class="card-content">
+        <h3>IU</h3>
+        <div class="info">South Korean | Singer & Songwriter</div>
+        <p>
+          A talented artist who has redefined the K-pop industry with
+          her unique voice and emotional depth.
+        </p>
+        <p class="quote">
+          "If you don’t get out of the box you’ve been raised in, you won’t understand how much bigger the world is."
+        </p>
+        <a href="celebrities/18.html">See More</a>
+      </div>
+    </div>
+
+    <!-- 19. Johnny Depp -->
+    <div class="card">
+      <img src="Image/Johny/deep.png" alt="Johnny Depp">
+      <div class="card-content">
+        <h3>Johnny Depp</h3>
+        <div class="info">American | Actor & Musician</div>
+        <p>
+          Celebrated for eclectic roles and fearless creativity,
+          becoming a symbol of artistic expression.
+        </p>
+        <p class="quote">
+          "I think everybody’s weird. We should all celebrate our individuality."
+        </p>
+        <a href="celebrities/19.html">See More</a>
+      </div>
+    </div>
+
+    <!--20. Christiano Ronaldo-->
+    <div class="card">
+      <img src="Image/Christiano/1ronaldo.png" alt="Christiano Ronaldo">
+      <div class="card-content">
+        <h3>Christiano Ronaldo</h3>
+        <div class="info">Portuguese | Footballer</div>
+        <p>
+          Celebrated for extraordinary athleticism and relentless determination,
+          becoming a global icon of excellence and discipline.
+        </p>
+        <p class="quote">
+          "Your love makes me strong. Your hate makes me unstoppable.<br/>suuueeeeeeeeeeeee!"
+        </p>
+        <a href="celebrities/20.html">See More</a>
+      </div>
+    </div>
+
+    <!--21. Robert Downey Jr.-->
+    <div class="card">
+      <img src="Image/RobertDowneyJr/RoberJR.png" alt="Robert Downey Jr.">
+      <div class="card-content">
+        <h3>Robert Downey Jr.</h3>
+        <div class="info">American | Actor & Producerr</div>
+        <p>
+          Celebrated for his charismatic performances and remarkable comeback story,
+          becoming a symbol of resilience and reinvention.
+        </p>
+        <p class="quote">
+          "Remember that just because you hit bottom doesn’t mean you have to stay there."
+        </p>
+        <a href="celebrities/21.html">See More</a>
+      </div>
+    </div>
+
+    <!--22. Manny Pacquiao.-->
+    <div class="card">
+      <img src="Image/Manny/pac.png" alt="Manny Pacquiao">
+      <div class="card-content">
+        <h3>Manny Pacquiao</h3>
+        <div class="info">Filipino | Boxer & Public Servant</div>
+        <p>
+          Renowned for his legendary boxing career and inspiring journey from poverty to global icon, 
+          becoming a symbol of determination and national pride.
+        </p>
+        <p class="quote">
+          "I don't look at myself as a superstar.
+           I just love boxing and love my country.<br/>
+           Happy New Year everyone!"
+        </p>
+        <a href="celebrities/22.html">See More</a>
+      </div>
+    </div>
+
+    <!--23. Bruno Mars.-->
+    <div class="card">
+      <img src="Image/Bruno/brunoMARS.png" alt="Bruno Mars">
+      <div class="card-content">
+        <h3>Bruno Mars</h3>
+        <div class="info">American | Singer, Songwriter & Performer</div>
+        <p>
+          Celebrated for his electrifying stage presence and genre-blending hits, becoming a symbol of timeless showmanship and musical excellence.
+        </p>
+        <p class="quote">
+          "You can’t knock on opportunity’s door and not be ready."
+        </p>
+        <a href="celebrities/23.html">See More</a>
+      </div>
+    </div>
+
+
+    <!-- 24. Lady Gaga -->
+    <div class="card">
+      <img src="Image/Gaga/lady.png" alt="Lady Gaga">
+      <div class="card-content">
+        <h3>Lady Gaga</h3>
+        <div class="info">American | Singer & Actress</div>
+        <p>
+          Broke boundaries in music, fashion, and film,
+          promoting bold originality and self-empowerment.
+        </p>
+        <p class="quote">
+          “Some women choose to follow men, and some choose to follow their dreams.”
+        </p>
+        <a href="celebrities/24.html">See More</a>
+      </div>
+    </div>
+
+    <!-- Hathaway -->
+    <div class="card">
+      <img src="Image/Hathaway/HAthaway.png" alt="Lady Gaga">
+      <div class="card-content">
+        <h3>Anne Hathaway</h3>
+        <div class="info">American | Singer & Actress</div>
+        <p>
+          She later proved her acting range with roles in major 
+          films like The Devil Wears Prada, Les Misérables 
+          (which won her an Academy Award), and Interstellar.
+        </p>
+        <p class="quote">
+          “I believe in being strong when everything seems to be going wrong.”
+        </p>
+        <a href="celebrities/25.html">See More</a>
+      </div>
+    </div>
+
+    <!-- Emilia -->
+    <div class="card">
+      <img src="Image/Emilia/Emilia.png" alt="Lady Gaga">
+      <div class="card-content">
+        <h3>Emilia Clarke</h3>
+        <div class="info">British | Actress</div>
+        <p>
+          Known for her role as Daenerys Targaryen in Game of Thrones,
+          showcasing her versatility and strength as an actress.
+        </p>
+        <p class="quote">
+          “What’s meant to be will be — and you just have to trust yourself.”
+        </p>
+        <a href="celebrities/26.html">See More</a>
+      </div>
+    </div>
+
+    <!--Daniel -->
+    <div class="card">
+      <img src="Image/daniel/DANIEL.PNG" alt="Lady Gaga">
+      <div class="card-content">
+        <h3>Daniel Radcliffe</h3>
+        <div class="info">Actor | Actor</div>
+        <p>
+          He is known for being humble, private, and choosing unique 
+          acting roles instead of staying in one type of character.
+        </p>
+        <p class="quote">
+          “Happiness can be found even in the darkest of times, if one only remembers to turn on the light.”
+        </p>
+        <a href="celebrities/27.html">See More</a>
+      </div>
+    </div>
+
+    <!-- 24. Emma -->
+    <div class="card">
+      <img src="Image/Emma/Emma.png" alt="Lady Gaga">
+      <div class="card-content">
+        <h3>Emma Watson</h3>
+        <div class="info">British | Actress</div>
+        <p>
+          Known for her role as Hermione Granger in the Harry Potter film series,
+          showcasing her talent and dedication as an actress.
+        </p>
+        <p class="quote">
+          “If you want to get on in life, you’ve got to work for it.”
+        </p>
+        <a href="celebrities/28.html">See More</a>
+      </div>
+    </div>
+
+    <!-- 24. Lady Gaga -->
+    <div class="card">
+      <img src="Image/JIM/JIM.PNG" alt="Lady Gaga">
+      <div class="card-content">
+        <h3>Jim Carrey</h3>
+        <div class="info">American | Actor & Comedian</div>
+        <p>
+         one of the most famous comedy actors in Hollywood, 
+         known for his energetic facial expressions, physical comedy.
+        </p>
+        <p class="quote">
+          “Behind every great man is a woman rolling her eyes.”
+        </p>
+        <a href="celebrities/29.html">See More</a>
+      </div>
+    </div>
+
+    <!-- Lisa -->
+    <div class="card">
+      <img src="Image/Lisa/Manoban.png" alt="Lady Gaga">
+      <div class="card-content">
+        <h3>Lalisa Manobal</h3>
+        <div class="info">Thai | Rapper, Singer, Dancer</div>
+        <p>
+          a world-famous K-pop idol best known as a member of BLACKPINK. 
+          She is the main dancer and one of the lead rappers of the group. 
+          She is admired globally for her powerful
+           dance skills, stage presence, and fashion influence.
+        </p>
+        <p class="quote">
+          “If you want to do something, just do it. Don’t be afraid."
+        </p>
+        <a href="celebrities/30.html">See More</a>
+      </div>
+    </div>
+
+    <!-- 24. Lady Gaga -->
+    <div class="card">
+      <img src="Image/Murphy/Murphy.png" alt="Lady Gaga">
+      <div class="card-content">
+        <h3>Cillian Murphy</h3>
+        <div class="info">Irish | Actor</div>
+        <p>
+          highly respected actor known for his intense, calm, and powerful performances.
+          He is known for his strong screen presence, emotional depth, and ability to play complex characters.
+        </p>
+        <p class="quote">
+          “I’m interested in characters who are complicated and flawed.”
+        </p>
+        <a href="celebrities/31.html">See More</a>
+      </div>
+    </div>
+
+    <!--peter -->
+    <div class="card">
+      <img src="Image/peter/peter.png" alt="Lady Gaga">
+      <div class="card-content">
+        <h3>Peter Dinklage</h3>
+        <div class="info">American | Actor</div>
+        <p>
+         known for his powerful performances and for changing 
+         how Hollywood portrays people with dwarfism
+        </p>
+        <p class="quote">
+          “I think everyone should be proud of who they are.”
+        </p>
+        <a href="celebrities/32.html">See More</a>
+      </div>
+    </div>
+
+    <!-- Ortega -->
+    <div class="card">
+      <img src="Image/Ortega/ortega.png" alt="Lady Gaga">
+      <div class="card-content">
+        <h3>Jenna Ortega</h3>
+        <div class="info">American | Actress</div>
+        <p>
+          a rising Hollywood star known for her strong acting skills and unique style.
+          She is also known for her bold fashion choices and strong voice in interviews about mental health and representation.
+        </p>
+        <p class="quote">
+          “I just try to stay true to myself and keep learning.”
+        </p>
+        <a href="celebrities/33.html">See More</a>
+      </div>
+    </div>
+
+    <!--Michelle -->
+    <div class="card">
+      <img src="Image/yeoh/michelle.png" alt="Lady Gaga">
+      <div class="card-content">
+        <h3>Michelle Yeoh</h3>
+        <div class="info">Malaysian | Actress & Producer</div>
+        <p>
+          legendary actress known for her strong action roles and powerful performances.
+           She first became famous in Hong Kong action films, where she performed many of her own stunts.
+        </p>
+        <p class="quote">
+          “You have to believe in yourself when no one else does.”
+        </p>
+        <a href="celebrities/34.html">See More</a>
+      </div>
+    </div>
+
+    <!--hemsworth -->
+    <div class="card">
+      <img src="Image/hemsworth.png" alt="Lady Gaga">
+      <div class="card-content">
+        <h3>Cris Hemsworth</h3>
+        <div class="info">Australian | Actor</div>
+        <p>
+          globally famous actor best known for playing Thor,
+          the God of Thunder, in superhero movies.
+        </p>
+        <p class="quote">
+          “The more conflicts and challenges in life, the more I grow.”
+        </p>
+        <a href="celebrities/35.html">See More</a>  
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!--filipino-->
+<section id="featured-filipino">
+<h2 class="section-title reveal">⭐ Featured Filipino Celebrities</h2>
+<div class="featured-grid reveal">
+  <div class="card">
+      <img src="Image/GAnda.png">
+      <div class="card-content">
+          <h3>Vice Ganda</h3>
+          <div class="info">Filipino | Comedian & TV Host</div>
+          <p>Known for his humor, advocacy, and influence in Philippine entertainment.</p>
+          
+      </div>
+  </div>
+  <div class="card">
+      <img src="Image/soberano.png">
+      <div class="card-content">
+          <h3>Liza Soberano</h3>
+          <div class="info">Filipino-American | Actress & Model</div>
+          <p>Admired for her beauty and advocacy work in the Philippines.</p>
+          
+      </div>
+  </div>
+  <div class="card">
+      <img src="Image/curtis.png">
+      <div class="card-content">
+          <h3>Anne Curtis</h3>
+          <div class="info">Filipino-Australian | Actress & TV Host</div>
+          <p>Versatile actress and philanthropist with strong influence in Philippine entertainment.</p>
+          
+      </div>
+  </div>
+  <div class="card">
+      <img src="Image/puso.png">
+      <div class="card-content">
+          <h3>Heart Evangelista</h3>
+          <div class="info">Filipino | Actress & Philanthropist</div>
+          <p>A multi-talented actress, painter, and fashion icon admired for her charitable works.</p>
+          
+      </div>
+    </div>
+     <!--Rico Yan -->
+    <div class="card" id="RicoYan">
+      <img src="Image/yan.png">
+      <div class="card-content">
+          <h3>Rico Yan</h3>
+          <div class="info">Filipino | Actor, Model, Entrepreneur</div>
+          <p>Most beloved actors in the Philippines during the late 
+            1990s. Even years after his passing, he remains an icon of 
+            charm, talent, and sincerity.</p>
+         
+      </div>
+    </div>
+    <div class="card">
+      <img src="Image/soho.png">
+      <div class="card-content">
+          <h3>Jessica Soho</h3>
+          <div class="info">Filipino | Broadcast Journalist, News Anchor, TV host</div>
+          <p>Respected and influential journalists in the Philippines, 
+            known for her credibility, 
+            fearless reporting, and powerful storytelling.</p>
+          
+      </div>
+    </div>
+    <div class="card">
+      <img src="Image/marian.png">
+      <div class="card-content">
+          <h3>Marian Rivera-Dantes</h3>
+          <div class="info">Filipino-Spanish | Actress, Model, TV host, Entrepreneur</div>
+          <p>One of the biggest and most influential actresses in the Philippines, 
+            known for her beauty, charisma, and iconic television roles.</p>
+          
+      </div>
+    </div>
+    <div class="card">
+      <img src="Image/fpj.png">
+      <div class="card-content">
+          <h3>Fernando Poe Jr.</h3>
+          <div class="info">Filipino | Actor & Director</div>
+          <p>Legendary figures in Philippine cinema, often called the “King of Philippine Movies.”</p>
+          
+      </div>
+    </div>
+    <div class="card">
+      <img src="Image/aunor.png">
+      <div class="card-content">
+          <h3>Nora Aunor</h3>
+          <div class="info">Filipino | Actress, Singer, Film Producer</div>
+          <p>Greatest icons in Philippine entertainment—revered as the “Superstar” 
+            and widely regarded as one of the finest actresses in Filipino cinema.</p>
+          
+      </div>
+    </div>
+    <div class="card">
+      <img src="Image/cocomartin.png">
+      <div class="card-content">
+          <h3>Coco Martin</h3>
+          <div class="info">Filipino | Actor, Director, Producer</div>
+          <p>One of the most influential and successful actors in modern Philippine television and film—known 
+            for his powerful performances and deep connection with the masses.</p>
+          
+      </div>
+    </div>
+    <div class="card">
+      <img src="Image/Ding.png">
+      <div class="card-content">
+          <h3>Dingdong Dates</h3>
+          <div class="info">Filipino | Actor, TV host, Model, Director</div>
+          <p>Rose to fame through major roles on GMA Network, becoming one of its biggest stars.</p>
+         
+      </div>
+    </div>
+    <div class="card">
+      <img src="Image/joshh.png">
+      <div class="card-content">
+          <h3>Joshua Garcia</h3>
+          <div class="info">Filipino | Actor & Model</div>
+          <p>A housemate in Pinoy Big Brother, where viewers noticed his natural charm and sincerity. After that, 
+            he quickly transitioned into acting and proved his talent in both TV and film.</p>
+          
+      </div>
+    </div>
+    <div class="card">
+      <img src="Image/pasqual.png">
+      <div class="card-content">
+          <h3>Piolo Pasqual</h3>
+          <div class="info">Filipino | Actor & Model</div>
+          <p>Built a long and successful career with ABS-CBN, 
+            becoming known for both romantic roles and serious drama.</p>
+         
+      </div>
+    </div>
+    <div class="card">
+      <img src="Image/salonga.png">
+      <div class="card-content">
+          <h3>Lea Salonga</h3>
+          <div class="info">Filipino | Singer, Actress, Broadway Performer</div>
+          <p>one of the Philippines’ most internationally acclaimed performers—renowned for her 
+            powerful voice and historic achievements in musical theater.</p>
+          
+      </div>
+    </div>
+
+
+
+</div>
+</section>
+
+
+<section id="founders">
+  <h2 class="section-title reveal">👥 About Us</h2>
+  
+  <p style="font-size: medium; margin-left: 2.4%; margin-right: 5%;">
+
+
+ ARKPA is a digital magazine created by April, Rosemary, Kian, Paulo, and Angelo, 
+ dedicated to sharing inspiring stories from the world of celebrities. More than just
+ a platform for fame and entertainment, ARKPA explores the real journeys behind 
+ success—highlighting the struggles, growth, and determination that shape well-known 
+ figures such as Anne Hathaway, Billie Eilish, and BTS. Through meaningful storytelling, 
+ ARKPA aims to inspire readers by showing that success is not instant, but built 
+ through perseverance, passion, and hard work. The mission of ARKPA is to deliver 
+ motivational and authentic celebrity content that encourages people to pursue their 
+ dreams and overcome challenges, while its vision is to become a leading online magazine 
+ known for inspiring stories and positive influence around the world. By combining 
+ entertainment with purpose, ARKPA seeks to connect with readers on a deeper level, 
+ turning celebrity experiences into powerful lessons that motivate individuals to grow, 
+ believe in themselves, and achieve their goals.
+</p>
+</div>
+
+
+<br>
+
+<div class="featured-grid reveal">
+<div class="card">
+  <div class="card-content">
+
+  <h3>MISSION</h3>
+
+ARKPA’s mission is to deliver inspiring celebrity content that motivates people to pursue 
+their dreams.
+
+We aim to:
+
+Share authentic stories behind fame
+Highlight challenges, failures, and comebacks
+Inspire readers to grow through real-life examples
+</div>
+</div>
+
+
+
+
+
+
+<div class="card">
+  <div class="card-content">
+
+  <h3>VISION</h3>
+ARKPA envisions becoming a leading online magazine known for
+Inspiring storytelling,
+Meaningful celebrity features, and
+Positive influence on readers worldwide.
+
+We strive to create a platform where people don’t just admire celebrities—but learn from 
+them and feel empowered.
+
+</div>
+</div>
+
+<div class="card">
+  <div class="card-content">
+  <h3>Goals</h3>
+
+  Become a recognized digital magazine brand
+  Collaborate with influencers and creators
+  Inspire millions of readers globally
+
+      
+      </div>
+    </div>
+</div>
+</div>
+
+
+
+<div class="card-content">
+  <h3>Founders</h3>
+  <div class="founder-grid reveal">
+
+
+    <!-- Founder Cards -->
+      <div class="card">
+        <div class="card-content">
+          <p 
+          style="font-size: large; font-family: serif;"><b style="color: red;">A</b>pril</p>
+          <p>Founder & CEO</p>
+        </div>
+      </div> 
+      <div class="card">
+        <div class="card-content">
+          <p style="font-size: large; font-family: serif;"><b style="color: red;">R</b>ose marry</p>
+          <p>Content Editor</p>
+        </div>
+      </div> 
+      <div class="card">
+        <div class="card-content">
+          <p style="font-size: large; font-family: serif;"><b style="color: red;">K</b>ian</p>
+          <p>Marketing Head</p>
+        </div>
+      </div> 
+      <div class="card">
+        <div class="card-content">
+          <p style="font-size: large; font-family: serif;"><b style="color: red;">P</b>aulo</p>
+          <p>Design Lead</p>
+        </div>
+      </div> 
+      <div class="card">
+        <div class="card-content">
+          <p style="font-size: large; font-family: serif;"><b style="color: red;">A</b>ngelo</p>
+          <p>Pogi lang ambag</p>
+        </div>
+      </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+<!--foot -->
+<footer>
+<p>© 2026 ARKPA Magazine | Inspiring the Next Generation</p>
+</footer>
+
+<script>
+// Hamburger menu toggle
+document.querySelector('.hamburger').addEventListener('click', () => {
+    document.querySelector('.hamburger').classList.toggle('active');
+    document.getElementById('hamburger-menu').classList.toggle('active');
+});
+
+// Dark mode toggle
+document.getElementById('dark-mode-toggle').addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+});
+
+
+
+// Slider functionality
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+
+function showSlide(index) {
+    slides.forEach(slide => slide.classList.remove('active'));
+    slides[index].classList.add('active');
+}
+
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+}
+
+setInterval(nextSlide, 5000); // Change slide every 5 seconds
+
+// Section highlight for header nav
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('nav a');
+
+function updateActiveSection() {
+    const scrollPosition = window.scrollY + window.innerHeight * 0.35;
+    let activeSet = false;
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+        const sectionId = section.getAttribute('id');
+
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            navLinks.forEach(link => {
+                link.classList.toggle('active', link.getAttribute('href') === `#${sectionId}`);
+            });
+            activeSet = true;
+        }
+    });
+
+    if (!activeSet) {
+        const lastSection = sections[sections.length - 1];
+        const lastSectionTop = lastSection.offsetTop;
+        if (window.scrollY + window.innerHeight >= document.body.scrollHeight - 10) {
+            navLinks.forEach(link => {
+                link.classList.toggle('active', link.getAttribute('href') === `#${lastSection.getAttribute('id')}`);
+            });
+        } else {
+            navLinks.forEach(link => link.classList.remove('active'));
+        }
+    }
+}
+
+window.addEventListener('scroll', updateActiveSection);
+window.addEventListener('resize', updateActiveSection);
+updateActiveSection();
+
+
+// SEARCH UPGRADE (NO HTML CHANGES)
+const searchInput = document.querySelector('.search-bar input');
+const searchButton = document.querySelector('.search-bar button');
+const cards = document.querySelectorAll('.card');
+const slider = document.getElementById('slider');
+
+// CREATE RESULT SECTION (JS ONLY)
+let resultsSection = document.createElement('section');
+resultsSection.id = "search-results";
+resultsSection.style.display = "none";
+resultsSection.style.padding = "40px 10%";
+
+let title = document.createElement('h2');
+title.className = "section-title";
+title.innerText = "🔍 Search Results";
+
+let container = document.createElement('div');
+container.style.display = "grid";
+container.style.gridTemplateColumns = "repeat(auto-fit, minmax(250px, 1fr))";
+container.style.gap = "20px";
+
+resultsSection.appendChild(title);
+resultsSection.appendChild(container);
+
+// INSERT AT TOP (after header)
+document.body.insertBefore(resultsSection, document.body.children[1]);
+
+function performSearch() {
+    const query = searchInput.value.toLowerCase().trim();
+    container.innerHTML = "";
+
+    if (query === "") {
+        resultsSection.style.display = "none";
+        slider.style.display = "block";
+
+        document.querySelectorAll("section").forEach(sec => {
+            if (sec.id !== "search-results") {
+                sec.style.display = "block";
+            }
+        });
+
+        return;
+    }
+
+    // SHOW RESULTS
+    resultsSection.style.display = "block";
+
+    // HIDE OTHER SECTIONS
+    slider.style.display = "none";
+    document.querySelectorAll("section").forEach(sec => {
+        if (sec.id !== "search-results") {
+            sec.style.display = "none";
+        }
+    });
+
+    let found = false;
+
+    cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+
+        if (text.includes(query)) {
+            found = true;
+
+            // GET SECTION NAME FROM ID
+            const section = card.closest("section");
+            let sectionName = "Other";
+
+            if (section) {
+                if (section.id === "trending") sectionName = "Trending";
+                else if (section.id === "celebrity") sectionName = "Celebrity Legends";
+                else if (section.id === "featured-filipino") sectionName = "Featured Filipino";
+                else if (section.id === "founders") sectionName = "Founders";
+            }
+
+            // CLONE CARD
+            const clone = card.cloneNode(true);
+
+            // WRAPPER
+            const wrapper = document.createElement("div");
+
+            const label = document.createElement("p");
+            label.innerText = "" + sectionName;
+            label.style.color = "red";
+            label.style.fontWeight = "bold";
+            label.style.marginBottom = "5px";
+
+            wrapper.appendChild(label);
+            wrapper.appendChild(clone);
+
+            container.appendChild(wrapper);
+        }
+    });
+
+    if (!found) {
+        container.innerHTML = "<p>No results found.</p>";
+    }
+
+    // SCROLL TO TOP
+    window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+// EVENTS
+searchButton.addEventListener('click', performSearch);
+
+searchInput.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') performSearch();
+});
+</script>
+
+</body>
+</html>
+
+
